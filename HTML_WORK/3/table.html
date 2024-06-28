@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/table.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>상품 구성</h2>
+    <img width="480px" src="img/aa.jpg" alt="">
+    <table>
+        <caption>테이블 이름</caption>
+        <colgroup>
+            <col style="background-color: antiquewhite;">
+            <col>
+            <col span="2" style="width: 200px;">
+            <!-- <col style="width: 200px;"> -->
+        </colgroup>
+        
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>개수</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="2">선물용1</td>
+                <td rowspan="2">3kg</td>
+                <td>5~10과</td>
+                <td>20,000원</td>
+            </tr>
+            <tr>
+                <!-- <td>선물용</td> -->
+                <!-- <td>3kg</td> -->
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+            <tr>
+                <td>선물용2</td>
+                <td>5kg</td>
+                <td>30과</td>
+                <td>50,000원</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
