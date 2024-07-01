@@ -9,12 +9,8 @@ public class ex010 {
 		
 		System.out.println(a<=b);
 		System.out.println(a>=b);
-		
 		System.out.println(10==10);
 		System.out.println(10!=10);
-		
-		
-		
 		
 		
 	}
