@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <form action="">
         <fieldset>
             <legend>아이디 패스워드</legend>
@@ -27,7 +30,7 @@
                 <label for="email">E-MAIL</label>
                 <input type="email">
             </p>
-        
+
             <p>
                 <input type="submit" value="속성변환" id="btn">
                 <input type="submit" value="로그인" id="btn02">
@@ -37,18 +40,39 @@
 
 
     <script>
-        // let a = getElementById('id').text();
-        // document.getElementById('btn').addEventListener('click', ()=>{
-        //     document.getElementById('password').setAttribute('type','text');
+        // $(document).ready(function () {
+        //     let i = 0;
+        //     $('#btn').click(function (e) {
+        //         event.preventDefault(e);
+        //         // alert('변환');
+        //         i++;
+        //         if (i > 1) i = 0;
+        //         if (i == 0) {
+        //             $('#password').attr('type', 'text');
+        //         }
+        //         else {
+        //             $('#password').attr('type', 'password');
+        //         }
+        //     })
         // })
- 
-        document.getElementById('btn').addEventListener('click', (e) => {
-        
-            alert('변환');
-            document.getElementById('password').setAttribute('type', 'text');
-            
-        });
 
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let i = 0;
+            document.getElementById('btn').addEventListener('click', function (event) {
+                event.preventDefault();
+
+                i++;
+                if (i > 1) i = 0;
+                if (i === 0) {
+                    document.getElementById('password').setAttribute('type', 'text');
+                } else {
+                    document.getElementById('password').setAttribute('type', 'password');
+                }
+                // console.log(i)
+            });
+        });
     </script>
 </body>
+
 </html>
