@@ -8,8 +8,10 @@ class exam {
 	public static void main(String[] args) {
 		int num0fApples = 123;
 		int size0fBucket = 10;
-	
+		
+		
 		int a = num0fApples%size0fBucket;
+		
 		
 		if(a==0) {
 			int num0fBuket = (num0fApples/size0fBucket);	
@@ -19,7 +21,11 @@ class exam {
 			int num0fBuket = (num0fApples/size0fBucket + 1);
 			System.out.println("필요한 바구니의 수 =" + num0fBuket);
 		}
-	
+
+		
+		
+		// 삼항을 활용한 식
+//		int num0fBuket = num0fApples / size0fBucket + (num0fApples % size0fBucket > 0 ? 1 : 0);     
 	}
 }
 

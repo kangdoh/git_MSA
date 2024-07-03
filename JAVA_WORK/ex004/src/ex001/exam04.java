@@ -5,37 +5,36 @@ package ex001;
 //(1)에 알맞은 코드를 넣으시오. 단, 변환 결과값은 소수점 셋째자리에서 반올림해야 한다.
 class exam04{
 	public static void main(String[] args) {
+		
 		int F = 100;
 		
 		double fc = (F-32)/1.8;
-//		System.out.println(fc);
-		int cc = (int) (fc*1000); // 셋째 자리까지 남기기 위해(37777) 
-		int ABC = cc%10; // 반올림 if 문을 위한 몫
+		int cc = (int) (fc*1000); 
+		int ABC = cc%10; 
 		
 		int cc2 = (int) (fc*100);
 		double C = (double) cc2/100;
 		double B = 0.01;
 		
-		if(5<=ABC) {
-			System.out.println("F = " + F);
-			System.out.println("C = " + (C+B));
-			System.out.println("올려");
-		}
-		else {
-			System.out.println("F = " + F);
-			System.out.println("C = " + C);
-			System.out.println("내려");
-		}
+//		if(5<=ABC) {
+//			System.out.println("F = " + F);
+//			System.out.println("C = " + (C+B));
+//			System.out.println("올려");
+//		}
+//		else {
+//			System.out.println("F = " + F);
+//			System.out.println("C = " + C);
+//			System.out.println("내려");
+//		}
+//		
+		
+String result = 5<=ABC ? "F = " + F + "\n" + "C = " + (C+B) + "\n" + "반올림": 
+"F = " + F + "\n" + "C = " + C + "\n" + "내림";
+		
+		System.out.println(result);
 		
 		
-		
-		
-		
-		
-		
-			
-		
-		
+//		+ Math.round(C) 반올림하라는 함수
 		
 		
 	}
