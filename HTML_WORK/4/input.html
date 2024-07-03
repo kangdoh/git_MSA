@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            font-size: 2rem;
+        }
+
+        .aaa {
+            transition: all 1s;
+            margin: 50px 0;
+        }
+
+        #female:checked~.aaa {
+            font-size: 200px;
+            color: brown;
+            transform: translateY(100px);
+        }
+
+        #male:checked~div {
+            background-color: rgb(0, 225, 255);
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <!-- get 방식와 post방싱 -->
+    <form action="ex_04.html" method="get">
+        
+        <fieldset>
+            <legend>회원가입</legend>
+            <div>
+                <label for="id">ID</label>
+                <input autocomplete="on" name="id" type="text" id="id">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>2문단</legend>
+            <div>
+                <label for="male">남성</label>
+                <input type="checkbox" id="male" name="gender" checked>
+    
+                <label for="female">여성</label>
+                <input type="checkbox" id="female" name="gender">
+    
+                <div class="aaa">사턍 냠냠</div>
+            </div>
+            <input type="submit" value="전송">
+        </fieldset>
+
+    </form>
+</body>
+
+</html>

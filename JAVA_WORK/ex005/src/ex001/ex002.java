@@ -35,8 +35,22 @@ public class ex002 {
 
 		
 // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★	
-// !(A && B)는 A와 B가 모두 true일 때 false가 되고, A나 B 중 하나라도 false일 때 true가 됩니다.
-// !(A || B)는 A나 B 중 하나라도 true일 때 false가 되고, A와 B가 모두 false일 때 true가 됩니다.
+//	    !(A && B)는 A와 B가 모두 true일 때 false가 되고,
+//	    A나 B 중 하나라도 false일 때 true가 됩니다.
+//	    즉, A 또는 B 중 하나라도 false라면 전체 조건은 true가 됩니다.
+//	    예시)
+//	    A true, B true = false
+//	    A flase, B true = true
+//	    A flase, B flase = ture
+//
+//
+//	    !(A || B)는 A나 B 중 하나라도 true일 때 false가 되고,
+//	    A와 B가 모두 false일 때 true가 됩니다. 
+//	    즉, A 또는 B 중 하나라도 true라면 전체 조건은 false가 됩니다.
+//	    예시)
+//	    A true, B true = flase
+//	    A true, B flase = flase
+//	    A flase, B flase = true
 // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★		
 		
 		

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input[type="file"]{
+            background-color: red;
+            height: 200px;
+        }
+    </style>
+
+</head>
+<body> 
+    <label for="number">number</label>
+    <input type="number" min="-100" max="100" name="" id="" value="10" step="10">
+
+    <label for="range">range</label>
+    <input type="range" name="" id="" min="-10" max="50" value="20">
+
+    <ul>
+        <li>
+            <label for="">
+                <input type="checkbox" value="f_3">가정용 3kg
+            </label>
+            <input type="range" min="0" max="5" onchange="fna()" id="inputrange">ea
+            <span id="my-value">1</span>개
+        </li>
+    </ul>
+   
+    <input type="month" name="month" id="month">
+    <input type="week" name="week" id="week">
+    <input type="date" name="date" id="date">
+    <input type="time" name="time" id="time">
+
+
+   <button onclick="window.open('ex_04.html')">GO</button>
+
+   <input type="file">
+
+   <script>
+    const fna = ()=>{        
+        alert('test'+document.getElementById('inputrange').value);
+        document.getElementById('my-value').textContent = document.getElementById('inputrange').value;
+    };
+   </script>
+</body>
+</html>

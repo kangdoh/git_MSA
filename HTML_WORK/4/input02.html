@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <fieldset>
+            <legend>아이디 패스워드</legend>
+
+            <p>
+                <label for="id">ID</label>
+                <input type="text" name="id" id="id" maxlength="5" value="100">
+            </p>
+            <p>
+                <label for="password">PASSWORD</label>
+                <input type="password" name="password" id="password">
+            </p>
+            <p>
+                <label for="tel">TEL</label>
+                <input type="tel" name="tel" id="tel">
+            </p>
+            <p>
+                <label for="email">E-MAIL</label>
+                <input type="email">
+            </p>
+        
+            <p>
+                <input type="submit" value="속성변환" id="btn">
+                <input type="submit" value="로그인" id="btn02">
+            </p>
+        </fieldset>
+    </form>
+
+
+    <script>
+        // let a = getElementById('id').text();
+        // document.getElementById('btn').addEventListener('click', ()=>{
+        //     document.getElementById('password').setAttribute('type','text');
+        // })
+ 
+        document.getElementById('btn').addEventListener('click', (e) => {
+        
+            alert('변환');
+            document.getElementById('password').setAttribute('type', 'text');
+            
+        });
+
+    </script>
+</body>
+</html>
