@@ -14,7 +14,7 @@ public class ex005 {
 		System.out.println(10>3);
 		System.out.println(10<3);
 	
-		boolean c = 20<3;
+		boolean c = (20<3);
 		System.out.println(c);
 		
 		b = true;

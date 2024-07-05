@@ -14,11 +14,11 @@ public class EX004 {
 		
 		
 		
-		
 		// 자동 형변환 (위의 반대의 경우)
 		short num3 = 20;
 		int num4 = num3;
 	
+		
 		
 	}
 }

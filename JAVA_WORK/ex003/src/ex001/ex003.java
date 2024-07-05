@@ -7,12 +7,13 @@ public class ex003 {
 	public static void main(String[] args) {
 		
 	Scanner scan = new Scanner(System.in);
-	int a;
 	int b;
+	int a;
 	
 	a = scan.nextInt();
 	b = scan.nextInt();
 
+	
 	System.out.println("a*b(곱하기) = "+a*b);
 	System.out.println(a+"x"+b+"="+a*b);
 	

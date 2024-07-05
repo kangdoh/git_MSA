@@ -12,7 +12,7 @@ public class ex006 {
 		System.out.println((double)a/b);
 		
 			
-	
+		
 		
 
 	}

@@ -16,20 +16,24 @@ public class ex002 {
 
 		// ++는 증가 후 계산 이라는 뜻(12), 11이라는 데이터를 받아서 출력
 		System.out.println(++num2);
+		
+		
 		// 증가 후 -로 계산 된다. (-12)
+		System.out.println(-+num2);
 		System.out.println(+-num2);
-		System.out.println(num2);
-
-		System.out.println(num2--);
-		System.out.println(num2);
+		
+//		System.out.println(num2);
+//
+//		System.out.println(num2--);
+//		System.out.println(num2);
 
 		
 		
-		for (int i = 0; i <= 10; i=i+2) {
-			System.out.println(i);
-			System.out.println(i*i);
-			System.out.println("-----");
-		}
+//		for (int i = 0; i <= 10; i=i+2) {
+//			System.out.println(i);
+//			System.out.println(i*i);
+//			System.out.println("-----");
+//		}
 
 		
 		
