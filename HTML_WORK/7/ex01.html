@@ -10,39 +10,47 @@
             width: 200px;
             height: 200px;
             background-color: beige;
-            margin: 20px;
+            margin: 100px;
             padding: 20px;
             box-sizing: border-box;
             /* box-shadow: 20px 20px 20px #000; */
             cursor: pointer;
+            transition: all 0.5s;
         }
-
         div:hover{
-            animation: ani 1s forwards;
+            animation: ani2 2s infinite;
+            transform: scale(1.5) rotate(360deg);
+            border-radius: 50%;
         }
         
-        @keyframes ani{
+        /* @keyframes ani{
             0%{
-                transform: rotate(0deg);
+                transform:  rotate(0) scale(1);
                 box-shadow: 0px 0px 0px #000;
             }
             50%{
-                transform: rotate(360deg);
+                transform: rotate(540deg) scale(1);
                 border-radius: 50%;
                 box-shadow: 0px 0px 0px #000;
-                transform: translateY(0px);
+            }
+            60%{
+                transform: rotate(720deg) scale(1);
+                background-color: beige;
             }
             100%{
-                transform: rotate(360deg);
+                transform: rotate(360deg) scale(1.5);
                 border-radius: 50%;
                 box-shadow: 10px 10px 20px #000;
+                background-color: rgb(117, 2, 2);
             }
-        } 
+        }  */
+
     </style>
 </head>
 <body>
-
+    
     <div></div>
+
 
 </body>
 </html>

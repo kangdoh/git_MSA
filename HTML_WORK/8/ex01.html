@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style-type: none;
+        }
+        .wrapper{
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+
+            background-image: url(../3/img/aa.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            
+            border: 2px solid #fff;
+        }
+        .wrapper>div{
+            /* text-align: center; */
+            background-color: rgba(199, 26, 98, 0.7);
+            width: 400px;
+            border: 3px double #fff;
+            padding: 20px;
+            margin: 15px;
+        }
+        .header{
+            border-radius: 2rem 2rem 0 0;
+        }
+        .content ul li{
+            display: inline-block;
+            margin: 20px;
+        }
+        .footer{
+            border-radius: 0 0 2rem 2rem;
+        }
+        .footer>table{
+            width: 100%;
+            text-align: center;
+        }
+        .footer>table, th ,td{
+            border: solid #000;
+            border-collapse : collapse;
+        }
+
+        
+    </style>
+</head>
+<body>
+   <div class="wrapper">
+        <div class="header">
+            <h1>레드향</h1>
+            <p>껍질에 붉은 빛이 돌아 레드향이라 불린다.</p>
+        </div>
+    
+        <div class="content">
+            <h1>레드향 샐러드 레시피</h1>
+            <p><b>재료</b> 레드향 1개 아보카드 1개 토마토1개</p>
+            <ul>
+                <li>샐러드</li>
+                <li>레드향</li>
+                <li>아보카드</li>
+            </ul>
+        </div>
+    
+        <div class="footer">
+            <h1>상품구성</h1>
+            <table>
+                <tr>
+                    <th>용도</th>
+                    <th>중량</th>
+                    <th>개수</th>
+                </tr>
+                <tr>
+                    <td>선물용</td>
+                    <td>3kg</td>
+                    <td>3개</td>
+                </tr>
+                <tr>
+                    <td>선물용</td>
+                    <td>3kg</td>
+                    <td>3개</td>
+                </tr>
+            </table>
+        </div>
+   </div>
+    
+</body> 
+</html>
