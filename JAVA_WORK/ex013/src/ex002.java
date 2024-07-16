@@ -23,6 +23,6 @@ public class ex002 {
         System.out.println(Arrays.toString(nums[1]));
         System.out.println(Arrays.toString(nums[2]));
 
-        
+
     }
 }

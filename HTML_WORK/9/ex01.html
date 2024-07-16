@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            padding: 30px;
+            line-height: 100px;
+            text-transform: uppercase;
+        }
+        ul{
+            display: flex;
+        }
+        .content{
+            background-color: black;
+            width: 1140px;
+            margin: 0 auto;
+            height: 100px;
+        }
+        .active{
+            border: 1px solid #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <ul>
+            <li><a href="#" id="menu1">1asd</a></li>
+            <li><a href="#" id="menu2">2asd</a></li>
+            <li><a href="#" id="menu3">3ads</a></li>
+            <li><a href="#" id="menu4">4dasd</a></li>
+            <li><a href="#" id="menu5">5dfads</a></li>
+        </ul>
+    </div>
+
+<div id="div1">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, commodi beatae. Eveniet alias animi itaque? Deleniti minima perspiciatis maiores at unde atque eveniet ad recusandae suscipit quibusdam officiis, amet laborum.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, commodi beatae. Eveniet alias animi itaque? Deleniti minima perspiciatis maiores at unde atque eveniet ad recusandae suscipit quibusdam officiis, amet laborum.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, commodi beatae. Eveniet alias animi itaque? Deleniti minima perspiciatis maiores at unde atque eveniet ad recusandae suscipit quibusdam officiis, amet laborum.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, commodi beatae. Eveniet alias animi itaque? Deleniti minima perspiciatis maiores at unde atque eveniet ad recusandae suscipit quibusdam officiis, amet laborum.</p>
+</div>
+
+<div id="div2">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, commodi beatae. Eveniet alias animi itaque? Deleniti minima perspiciatis maiores at unde atque eveniet ad recusandae suscipit quibusdam officiis, amet laborum.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, commodi beatae. Eveniet alias animi itaque? Deleniti minima perspiciatis maiores at unde atque eveniet ad recusandae suscipit quibusdam officiis, amet laborum.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, commodi beatae. Eveniet alias animi itaque? Deleniti minima perspiciatis maiores at unde atque eveniet ad recusandae suscipit quibusdam officiis, amet laborum.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, commodi beatae. Eveniet alias animi itaque? Deleniti minima perspiciatis maiores at unde atque eveniet ad recusandae suscipit quibusdam officiis, amet laborum.</p>
+</div>
+
+    
+<script>
+    $(document).ready(function(){
+        // $('#menu1').click(function(){
+        //     $('#div1').fadeToggle();
+        // })
+        // $('#menu2').click(function(){
+        //     $('#div2').fadeToggle();
+        // })
+    
+        $('#menu1').mouseenter(function(){
+            $('#div1').fadeIn();
+        })
+        $('#menu1').mouseleave(function(){
+            $('#div1').fadeOut();
+        })
+
+        $('#menu2').mouseenter(function(){
+            $('#div2').fadeIn();
+        })
+        $('#menu2').mouseleave(function(){
+            $('#div2').fadeOut();
+        })
+
+    })
+</script>
+</body>
+</html>
