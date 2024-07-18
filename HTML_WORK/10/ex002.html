@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* background-image: url(../Downloads/ccc.jpg); */
+            background-size: cover;
+            margin: 30px;
+            height: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div::before{
+            content: '';
+            background-image: url(../Downloads/bbb.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right bottom, rgb(221, 0, 0), blue, white, rgb(151, 22, 22));
+        }
+
+        h1{
+            position: relative;   
+            color: rgb(38, 113, 199);
+            text-shadow: 5px 5px 6px ;
+        }
+        span{
+            color: rgb(240, 108, 115);
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>나는 <span>JAVA</span>만 하고 싶다!</h1>
+    </div>
+
+</body>
+</html>

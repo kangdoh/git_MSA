@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 폰트 링크 연결 확인 -->
+    <link rel="stylesheet" href="common/css/main/font/copyduck/copyduck.css">
+</head>
+<body>
+    <style>
+        /* 이거는 div 임시 조절용 */
+        div{
+          margin-top: 200px;
+          height: 100px;
+        }
+
+        div span {
+          font-family: var(--font-family-copyduck);
+          font-size: 110px;
+          color: rgb(41, 128, 209);
+          position: relative;
+          top: 20px;
+          display: inline-block;
+          -webkit-font-smoothing: antialiased;
+          /* 글자 자체의 그림자 - 입체감 */
+          text-shadow: 0 1px 0 #060866,0 2px 0 #060866, 0 2px 0 #0d7ca8, 0 3px 0 #060866, 0 4px 0 #0d7ca8, 0 5px 0 #0d7ca8, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(25,125,225,0.5);
+          animation: bounce 0.5s ease-out infinite alternate;
+        }
+
+        /* 이곳 애니메이션 딜레이를 조절하면 글자 튀기는 속도와 타이밍 조절 */
+        div span:nth-child(2) {animation-delay: 0.1s;}
+        div span:nth-child(3) {animation-delay: 0.2s;}
+        div span:nth-child(4) {animation-delay: 0.4s;}
+        div span:nth-child(5) {animation-delay: 0.2s;}
+        div span:nth-child(6) {animation-delay: 0.3s;}
+        div span:nth-child(7) {animation-delay: 0.7s;}
+        div span:nth-child(8) {animation-delay: 0.6s;}
+        div span:nth-child(9) {animation-delay: 0.3s;}
+
+        /* top 값을 조절하면 튀기는 높이를 조절 */
+        @keyframes bounce {
+          100% {
+            top: -150px;
+            /* 밑에는 텍스트 밑에 그림자인데 글자가 누워서 튀기는거 같아서 일단 주석처리 */
+            /* text-shadow: 0 1px 0 #ccc, 0 2px 0 #ee9696, 0 2px 0 #ee9696, 0 3px 0 #ee9696, 0 4px 0 #ee9696, 0 5px 0 #ee9696, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 50px 35px rgba(25,125,225,0.5); */
+          }
+        }
+    </style>
+
+    <div>
+        <span>코</span>
+        <span>딩</span>
+        <span>테</span>
+        <span>스</span>
+        <span>트</span>
+        <span>J</span>
+        <span>A</span>
+        <span>V</span>
+        <span>A</span>
+    </div>
+
+
+</body>
+</html>
