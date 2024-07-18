@@ -21,9 +21,9 @@ class Student{
 
     // 생성자(이 부분이 틀이라고 생각하면 된다.)
     public Student(int a, int b, int c){
-        kor = a;
-        eng = b;
-        math = c;
+        this.kor = a;
+        this.eng = b;
+        this.math = c;
     }
 
     // getTotal()의 괄호 안에는 메인에 있는것을 불러 올때
