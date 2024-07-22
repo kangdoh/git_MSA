@@ -16,9 +16,11 @@ public class Ex05 {
     public static void change(int[][] origin){
         for(int i=0; i<origin.length; i++){
             for (int j=0; j<origin[i].length; j++){
+
                 System.out.print(
                         origin[i][j]+"\t"
                 );
+
             }
             System.out.println();
         }

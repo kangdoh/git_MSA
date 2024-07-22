@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul, ol{
+    list-style-type: none;
+}
+li{
+    border: 1px solid #000;
+    padding: 20px;
+    width: 300px;
+    /* margin: 15px; */
+    cursor: pointer;
+    
+}
+li:hover{
+    background-color: antiquewhite;
+}
+div{
+    display: none;
+}
+button:hover + div{
+    display: block;
+}
+
+
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #ck1:checked ~ #lab1{background-color: darkcyan;}
+        #ck2:checked ~ #lab2{background-color: darkcyan;}
+        #ck3:checked ~ #lab3{background-color: darkcyan;}
+        #ck1:checked ~ #div_1{display: block;}
+        #ck2:checked ~ #div_2{display: block;}
+        #ck3:checked ~ #div_3{display: block;}
+        
+        div>div{
+            display: none;
+            margin: 20px 0;
+        }
+        label{            
+            cursor: pointer;
+            border: 1px solid #000;
+            color: rgb(7, 7, 110);
+            padding: 0px 20px;
+        }
+        /* label::after{
+            height: 0.7rem;
+            content: "";
+            border-right: 1px solid #000;
+        } */
+
+        input{
+            display: none;
+        }
+        [type=radio]{            
+        
+        }
+        [for=ck1]{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one">
+        <h1>ㅎ ㅎ ㅎ</h1>
+        
+        <input type="radio" name="gg" id="ck1" checked>
+        <input type="radio" name="gg" id="ck2">
+        <input type="radio" name="gg" id="ck3">
+
+        <label for="ck1" id="lab1">ck1</label>
+        <label for="ck2" id="lab2">ck2</label>
+        <label for="ck3" id="lab3">ck3</label>
+
+        <div id="div_1">Lorem isdfasdfasdfpsum dolor sit amet consectetur adipisicing elit. Voluptatum ipsum distinctio dicta nam. Consequatur quos praesentium assumenda, pariatur doloremque ut nihil dolore rem corporis, eveniet aspernatur. Ullam laboriosam molestias earum?</div>
+        <div id="div_2">Lofasdsdfasdfasdfarem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ipsum distinctio dicta nam. Consequatur quos praesentium assumenda, pariatur doloremque ut nihil dolore rem corporis, eveniet aspernatur. Ullam laboriosam molestias earum?</div>
+        <div id="div_3">Loradassfasdfasdfem ipsum sdfdolor sit amet consectetur adipisicing elit. Voluptatum ipsum distinctio dicta nam. Consequatur quos praesentium assumenda, pariatur doloremque ut nihil dolore rem corporis, eveniet aspernatur. Ullam laboriosam molestias earum?</div>
+    </div>
+
+</body>
+</html>
