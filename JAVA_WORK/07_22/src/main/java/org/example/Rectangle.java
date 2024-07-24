@@ -12,16 +12,27 @@ public class Rectangle {
         this.width = width;
         this.height = height;
     }
-
     public int square(){
         int e = this.width * this.height;
-        System.out.println(e);
         return e;
     }
-
     public void show(){
-
+        System.out.println("x : "+x+"\t"+"y : "+y+"\t"+"너비 : "+width*height);
     }
+
+    public boolean contains(){
+        if(x>1 && y>1){
+            if(x+width<11 && y+height<11){
+
+            }
+        }
+        else{
+
+        }
+
+        return result;
+    }
+
 
 
 }
