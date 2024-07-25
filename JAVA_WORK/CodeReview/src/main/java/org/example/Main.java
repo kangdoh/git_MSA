@@ -19,12 +19,23 @@ public class Main {
                 System.out.println("이름을 입력해 주세요.");
                 String name = scan.next();
 
-                System.out.println("학번을 입력해 주세요.");
-                int studentID = scan.nextInt();
-                for(int j = 0; j<i; j++){
-                    if(studentID == a[j].studentID){
-                        System.out.println("중복된 학번입니다.");
+                boolean check = false;
+                while(check){
+                    System.out.println("학번을 입력해 주세요.");
+                    int studentID = scan.nextInt();
+
+                    for(int j = 0; j<i; j++){
+                        if(studentID == a[j].studentID){
+                            System.out.println("중복된 학번입니다.");
+
+                            check = true;
+                            break;
+                        }
                     }
+
+//                    if(){
+//                        check = false;
+//                    }
                 }
 
                 System.out.println("국어점수를 입력해 주세요.");
@@ -43,6 +54,7 @@ public class Main {
                 System.out.println();
             }
         System.out.println(a[0].average);
+
 
 //  a[0] = {name, studentID, korean, english, math}
 //  a[1] = {name, studentID, korean, english, math}

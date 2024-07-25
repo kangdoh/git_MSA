@@ -11,10 +11,12 @@ public class Ex06 {
 
         try{
             //  DB 연결 유지 클래스
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/aaa", "root", "1234");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/path", "root", "1234");
+            
+            // SQL구문 담는 객체
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO student values ('김길동', 10, 100, 100, 39)");
 
-
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO student values ('김길동', '100', '100', '100')");
+            pstmt.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
         }
