@@ -20,5 +20,6 @@ public class Main {
         System.out.println(AAA1 == AAA2);
 //        A a = new A();
 //        a = null;
+
     }
 }
