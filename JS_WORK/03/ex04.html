@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="" id="num1">
+    <input type="text" name="" id="num2">
+    <button id="btn">구구단</button>
+
+    <div style="font-size: 50px;" id="result">?</div>
+
+
+    <input type="text" name="" id="num3"><button id="btn02">구구단</button>
+    
+
+    <script>
+        var a = document.getElementById("num1");
+        var b = document.getElementById("num2");
+        var c = document.getElementById("result")
+        var d = document.getElementById("btn");
+
+        d.onclick= ()=>{
+            const num1 = a.value;
+            const num2 = b.value;
+
+            c.innerHTML = num1*num2;
+        };
+        var aa = document.getElementById("btn02");
+        var bb = document.getElementById("num3");
+        
+        aa.onclick = () => {
+            const vv = bb.value;
+            c.innerHTML = "";
+            for(var i=0; i<10; i++){
+                c.innerHTML = c.innerHTML + vv+"*"+i+"=" + i*Number(vv) + `<br/>`;   
+            }
+        }
+    </script>
+</body>
+</html>
