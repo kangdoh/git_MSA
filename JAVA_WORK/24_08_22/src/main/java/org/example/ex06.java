@@ -18,6 +18,7 @@ public class ex06 {
         Viewer viewer = new Viewer();
         viewer.showIt("경고문구");
     }
-
-
 }
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+        }
+        
+        .cont>div{
+            width: 200px;
+            height: 200px;
+        }
+        div>div:nth-child(1){
+            background-color: red;
+        }
+        div>div:nth-child(2){
+            background-color: blue;
+        }
+        div>div:nth-child(3){
+            background-color: yellow;
+            flex-grow: 1;
+        }
+        
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="cont">
+        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, soluta eum dolorum excepturi tempora
+            libero alias saepe quis quos eos quo assumenda praesentium ipsum incidunt unde? Quibusdam cumque maiores
+            dignissimos.</div>
+        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, soluta eum dolorum excepturi tempora
+            libero alias saepe quis quos eos quo assumenda praesentium ipsum incidunt unde? Quibusdam cumque maiores
+            dignissimos.</div>
+        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, soluta eum dolorum excepturi tempora
+            libero alias saepe quis quos eos quo assumenda praesentium ipsum incidunt unde? Quibusdam cumque maiores
+            dignissimos.</div>
+        <!-- <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, soluta eum dolorum excepturi tempora
+            libero alias saepe quis quos eos quo assumenda praesentium ipsum incidunt unde? Quibusdam cumque maiores
+            dignissimos.</div>
+        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, soluta eum dolorum excepturi tempora
+            libero alias saepe quis quos eos quo assumenda praesentium ipsum incidunt unde? Quibusdam cumque maiores
+            dignissimos.</div> -->
+    </div>
+    
+</body>
+
+</html>
