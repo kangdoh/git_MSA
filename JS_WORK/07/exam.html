@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="text">
+    <button id="btn">검색</button>
+    <div id="result"></div>
+
+    <script>
+        var text = document.getElementById('text');
+        var push = document.getElementById('result');
+        
+        document.getElementById('btn').onclick=(e)=>{
+            const n = text.value;
+            let total = 0;
+
+            push.innerHTML="";
+            for (i = 1; i <= n; i++) {
+                total += i;
+            }
+            push.innerHTML=total;
+        }
+
+    </script>
+</body>
+
+</html>

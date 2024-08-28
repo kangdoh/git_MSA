@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        function doA(){
+            a = 10;
+            b = 20;
+            let c = 30;
+            console.log(c);
+
+            var q = 100;
+            console.log(q);
+            var q = 200;
+            console.log(q); //이러한 식으로 재정의 가능하다.
+
+            let l = 100;
+            console.log(l);
+            // let l = 200; let은 이러한 재정의가 불가능 하다.
+            console.log(l); 
+
+        }
+        doA();
+        console.log(a);
+        console.log(b);
+        // console.log(c); <- 이거는 안된다.
+
+    </script>
+</body>
+</html>
