@@ -35,6 +35,7 @@ public class DBRepository {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
+
             try{
                 if(conn!=null)
                     conn.close();
