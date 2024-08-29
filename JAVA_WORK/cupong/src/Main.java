@@ -18,6 +18,7 @@ public class Main {
         int a = scan.nextInt();
 
 
+
         switch (a){
             case 1:
                 System.out.println("1");

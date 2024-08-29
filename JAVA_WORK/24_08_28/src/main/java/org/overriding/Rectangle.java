@@ -6,10 +6,9 @@ public class Rectangle extends Shape {
         super(name);
     }
 
-
-
     @Override
     public void draw() {
         System.out.println(name);
     }
+
 }

@@ -2,10 +2,12 @@ package domain;
 
 public class Review extends Member{
 
+    private int memder_id;
     protected int review_id;
     protected int stars;
     protected String contents;
     protected String date;
+
 
     public Review(int review_id, int stars, String contents, String date) {
         this.review_id = review_id;
@@ -16,10 +18,7 @@ public class Review extends Member{
     }
 
 
-
-
     public void select() {
 
     }
-
 }
