@@ -83,7 +83,6 @@ public class DBRepository {
                     "1234");
             // sql 생성
             pstmt = conn.prepareStatement("update aa set name=?, age=? where idx=?");
-
             String name = JOptionPane.showInputDialog("이름");
             pstmt.setString(1, name);
             int age = Integer.parseInt(JOptionPane.showInputDialog("나이"));

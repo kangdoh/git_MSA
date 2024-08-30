@@ -16,6 +16,6 @@ public class ex08 {
                         , ((integers, integers2) -> integers.addAll((integers2)))
                 );
 //                .forEach(System.out::println);
-
+        
     }
 }
