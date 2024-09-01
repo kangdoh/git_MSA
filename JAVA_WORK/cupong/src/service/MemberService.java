@@ -1,37 +1,70 @@
 package service;
 
 import domain.Cart;
+import domain.CartItem;
 import domain.Orders;
 import domain.Review;
+import repository.CartItemRepository;
+import repository.CartRepository;
+import repository.ReviewRepository;
 
 import java.util.Scanner;
 
 public class MemberService {
-
     public void memberservice(){
         System.out.println();
         Scanner scan = new Scanner(System.in);
 
-
         System.out.println("""
-                1. 장바구니 보기
-                2. 주문하기
-                3. 리뷰기능
+                1. 리뷰관리하기
+                2. 장바구니
+                3. 장바구니 상품
                 """);
-
         int a = scan.nextInt();
 
         switch (a){
             case 1:
-                Cart cart = new Cart();
-                cart.select();
+                ReviewRepository reviewRepository = new ReviewRepository();
+                System.out.println("""
+                            1. 내 리뷰 보기
+                            2. 리뷰 작성하기
+                            """);
+                switch (a){
+                    // 내 리뷰보기
+                    case 1:
+                        reviewRepository.select();
+                        System.out.println("""
+                                1. 리뷰 수정하기
+                                2. 리뷰 삭제하기
+                                """);
+                        switch (a){
+                            // 리뷰수정
+                            case 1:
+                                reviewRepository.update();
+                            // 리뷰삭제
+                            case 2:
+                                reviewRepository.delete();
+                            default:
+                                break;
+                        }
+                    // 리뷰작성
+                    case 2:
+                        reviewRepository.insert();
+                    default:
+                        break;
+                }
             case 2:
-                Orders orders = new Orders();
-                orders.order();
+                CartRepository cartRepository = new CartRepository();
+                cartRepository.select();
+                cartRepository.insert();
+                cartRepository.update();
+                cartRepository.delete();
             case 3:
-                Review review = new Review();
-                review.select();
+                CartItemRepository cartItemRepository = new CartItemRepository();
+
             default:
+                System.out.println("다시 선택해주세요.");
+                break;
         }
     }
 
