@@ -1,5 +1,7 @@
 package repository;
 
+import domain.Review;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -36,7 +38,7 @@ public class ReviewRepository {
     }
 
     // 리뷰작성
-    public void insert(){
+    public void insert(Review review){
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -46,20 +48,23 @@ public class ReviewRepository {
             conn = DriverManager.getConnection("주소 등등");
             pstmt = conn.prepareStatement(
                     "insert into Review(stars,contents,date) values(?, ?, ?)");
+//            Class.forName("")
 
-            System.out.println("평점을 입력해주세요.");
-            int stars = scan.nextInt();
-            pstmt.setInt(1, stars);
+            //System.out.println("평점을 입력해주세요.");
+            //int stars = scan.nextInt();
 
-            System.out.println("내용을 입력해주세요.");
-            String contents = scan.next();
-            pstmt.setString(2, contents);
+            pstmt.setInt(1, review.getStars());
+
+            //System.out.println("내용을 입력해주세요.");
+            //String contents = scan.next();
+            pstmt.setString(2, review.getContents());
 
             LocalDate localDate = LocalDate.now();
             // LocalDate를 sql문으로 바꿔서 사용을 해야한다.
             Date sqlDate = Date.valueOf(localDate);
             pstmt.setDate(3, sqlDate);
 
+            pstmt.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
         }

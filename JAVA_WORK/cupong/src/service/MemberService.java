@@ -10,6 +10,7 @@ import repository.ReviewRepository;
 
 import java.util.Scanner;
 
+//회원 가입, 회원 수정, 회원 본인 조회, 회원 삭제(탈퇴), 로그인, 로그아웃
 public class MemberService {
     public void memberservice(){
         System.out.println();
