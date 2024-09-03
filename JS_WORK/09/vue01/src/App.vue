@@ -5,7 +5,6 @@ const myarr = [{age:20, name:"홍길동"}, {age:45, name:"박길동"}, {age:30, 
 
 <template>
   <div>
-    
     <h1>안녕 뷰</h1>
     <div>{{myarr}}</div>
   
@@ -13,9 +12,10 @@ const myarr = [{age:20, name:"홍길동"}, {age:45, name:"박길동"}, {age:30, 
       <h1>나이 : {{item.age}} 이름 : {{item.name}}</h1>
     </div>
 
+    
   </div>
 </template>
 
-
 <style scoped>
+
 </style>

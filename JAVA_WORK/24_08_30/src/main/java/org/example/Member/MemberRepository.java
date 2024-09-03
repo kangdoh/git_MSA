@@ -1,18 +1,19 @@
-package org.example;
+package org.example.Member;
 
 import java.sql.*;
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.util.Scanner;
 
 
 public class MemberRepository {
     //        Connection conn = null;
 //        PreparedStatement pstmt = null;
 //        ResultSet rs = null;
+    Scanner scan = new Scanner(System.in);
+
+
     public void select() {
         List<Member> list = new ArrayList<>();
         try (Connection conn =
@@ -65,7 +66,60 @@ public class MemberRepository {
         }
     }
 
+    public void delete(){
+        Connection conn = null;
 
+
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/path", "root", "1234");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            pstmt = conn.prepareStatement("delete from aa where idx=?");
+
+            int idx = scan.nextInt();
+            pstmt.setInt(1, idx);
+
+            pstmt.executeUpdate();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+
+        }
+    }
+
+
+
+    public Member findByIdx(int idx){
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/path", "root", "1234")) {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            PreparedStatement pstmt = conn.prepareStatement("select * from aa where idx=?");
+
+            pstmt.setInt(1, idx);
+            ResultSet rs = pstmt.executeQuery();
+
+            if(rs.next()){
+                //사용자 있음
+                return Member.builder()
+                        .idx(rs.getInt("idx"))
+                        .name(rs.getString("name"))
+                        .email(rs.getString("email"))
+                        .build();
+            }
+            else {
+                //사용자 없음
+                return null;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
 
 }

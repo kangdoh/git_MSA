@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Member;
 
 import lombok.*;
 import java.time.LocalDateTime;
@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
 public class Member {
     private int idx;
     private String name;
