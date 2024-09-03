@@ -42,15 +42,29 @@ public class MemberService {
                             // 리뷰수정
                             case 1:
                                 reviewRepository.update();
+                                System.out.println("수정할 리뷰 아이디를 입력해주세요.");
+                                int rid = scan.nextInt();
+                                System.out.println("수정할 별점을 입력해 주세요.");
+                                int stars = scan.nextInt();
+                                System.out.println("수정할 리뷰 내용을 입력해주세요.");
+                                String contents = scan.next();
+
                             // 리뷰삭제
                             case 2:
                                 reviewRepository.delete();
+                                System.out.println("삭제할 리뷰의 아이디를 입력해 주세요.");
+                                int idx = scan.nextInt();
                             default:
                                 break;
                         }
                     // 리뷰작성
                     case 2:
                         reviewRepository.insert();
+                        System.out.println("평점을 입력해주세요.");
+                        int stars = scan.nextInt();
+                        System.out.println("내용을 입력해주세요.");
+                        String contents = scan.next();
+
                     default:
                         break;
                 }

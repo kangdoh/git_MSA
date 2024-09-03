@@ -1,9 +1,14 @@
 package repository;
 
+import domain.Member;
 import domain.Review;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ReviewRepository {
@@ -14,6 +19,7 @@ public class ReviewRepository {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+        List<Review> list = new ArrayList<>();
 
         try{
             conn = DriverManager.getConnection("주소 등등");
@@ -22,12 +28,15 @@ public class ReviewRepository {
 
             //집합의 첫 번째 행으로 이동하고, 그 행이 존재하면 true를 반환
             while(rs.next()){
-                System.out.print("리뷰ID = "+rs.getInt("review_id"));
-                System.out.print("회원ID = "+rs.getInt("memder_id"));
-                System.out.println("상품ID = "+rs.getInt("item_id"));
-                System.out.println("별점 = "+rs.getInt("stars"));
-                System.out.println("내용 = "+rs.getString("contents"));
-                System.out.println("작성일 = "+rs.getString("date"));
+                Review review = new Review(
+                        rs.getInt("review_id"),
+                        rs.getInt("member_id"),
+                        rs.getInt("item_id"),
+                        rs.getInt("stars"),
+                        rs.getString("contents"),
+                        rs.getString("date")
+                );
+                list.add(review);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -45,26 +54,16 @@ public class ReviewRepository {
 
         // 리뷰아이디(순번)나 회원아이디 제품 아이디는 자동으로???
         try{
+            LocalDateTime localDate = LocalDateTime.now();
             conn = DriverManager.getConnection("주소 등등");
             pstmt = conn.prepareStatement(
                     "insert into Review(stars,contents,date) values(?, ?, ?)");
 //            Class.forName("")
-
-            //System.out.println("평점을 입력해주세요.");
-            //int stars = scan.nextInt();
-
             pstmt.setInt(1, review.getStars());
-
-            //System.out.println("내용을 입력해주세요.");
-            //String contents = scan.next();
             pstmt.setString(2, review.getContents());
-
-            LocalDate localDate = LocalDate.now();
-            // LocalDate를 sql문으로 바꿔서 사용을 해야한다.
-            Date sqlDate = Date.valueOf(localDate);
-            pstmt.setDate(3, sqlDate);
-
+            pstmt.setObject(3, localDate);
             pstmt.executeUpdate();
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -73,9 +72,8 @@ public class ReviewRepository {
         }
     }
 
-
     // 리뷰수정
-    public void update(){
+    public void update(Review review){
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -83,23 +81,12 @@ public class ReviewRepository {
         try{
             conn = DriverManager.getConnection("주소 등등");
             pstmt = conn.prepareStatement("update Review set stars=?, contents=?, date=? where review_id=?");
+            LocalDateTime localDateTime = LocalDateTime.now();
 
-            System.out.println("수정할 리뷰 아이디를 입력해주세요.");
-            int rid = scan.nextInt();
             pstmt.setInt(4, rid);
-
-            System.out.println("수정할 별점을 입력해 주세요.");
-            int stars = scan.nextInt();
             pstmt.setInt(1, stars);
-
-            System.out.println("수정할 리뷰 내용을 입력해주세요.");
-            String contents = scan.next();
             pstmt.setString(2, contents);
-
-            LocalDate localDate = LocalDate.now();
-            // LocalDate를 sql문으로 바꿔서 사용을 해야한다.
-            Date sqlDate = Date.valueOf(localDate);
-            pstmt.setDate(3, sqlDate);
+            pstmt.setObject(3, localDateTime);
 
             pstmt.executeUpdate();
         }catch (Exception e){
@@ -119,9 +106,6 @@ public class ReviewRepository {
         try{
             conn = DriverManager.getConnection("주소입력 등등");
             pstmt = conn.prepareStatement("delet from Review where review_id=?");
-
-            System.out.println("삭제할 리뷰의 아이디를 입력해 주세요.");
-            int idx = scan.nextInt();
             pstmt.setInt(1, idx);
 
             pstmt.executeUpdate();
