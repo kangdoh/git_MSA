@@ -1,7 +1,7 @@
 package domain;
 
 public class Member {
-    protected int memder_id;
+    protected Long memberId;
     protected String name;
     protected String birth;
     protected String phone;
@@ -16,8 +16,8 @@ public class Member {
     protected String home;
 
 
-    public Member(int memder_id, String name, String birth, String phone, String email, String adress, int role, String roginid, String password, String home) {
-        this.memder_id = memder_id;
+    public Member(Long memberId, String name, String birth, String phone, String email, String adress, int role, String roginid, String password, String home) {
+        this.memberId = memberId;
         this.name = name;
         this.birth = birth;
         this.phone = phone;
@@ -27,6 +27,10 @@ public class Member {
         this.roginid = roginid;
         this.password = password;
         this.home = home;
+    }
+
+    public Long getMemberId() {
+        return memberId;
     }
 
 

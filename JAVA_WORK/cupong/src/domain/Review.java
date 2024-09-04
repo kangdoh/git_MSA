@@ -1,25 +1,33 @@
 package domain;
 
+// 변수명 or 메서드명 : Camel Case ex) userId
+// DB 컬럼명 : Snake Case ex) user_id
 public class Review{
 
     // PK
     private int review_id;
     // FK
-    private int memder_id;
-    private int item_id;
+    private Long member_id;
+    private Long item_id;
     // NM
     private int stars;
     private String contents;
     private String date;
 
-    public Review(int review_id, int memder_id, int item_id, int stars, String contents, String date) {
-        this.review_id = review_id;
-        this.memder_id = memder_id;
+    //Session.getInstance().getCurrentMember().getMemberId() => Member 객체
+
+    public Review(Long member_id, Long item_id, int stars, String contents) {
+        this.member_id = member_id;
         this.item_id = item_id;
         this.stars = stars;
         this.contents = contents;
-        this.date = date;
     }
+
+//    public Review(Long item_id, int stars, String contents) {
+//        this.item_id = item_id;
+//        this.stars = stars;
+//        this.contents = contents;
+//    }
 
     public int getReview_id() {
         return review_id;
@@ -28,7 +36,7 @@ public class Review{
         this.review_id = review_id;
     }
 
-    public int getMemder_id() {
+    public Long getMemder_id() {
         return memder_id;
     }
     public void setMemder_id(int memder_id) {
