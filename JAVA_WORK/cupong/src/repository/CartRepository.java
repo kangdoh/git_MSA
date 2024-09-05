@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import static connection.DBConnectionUtil.getConnection;
+
 public class CartRepository {
 
     // (조회)
@@ -15,7 +17,7 @@ public class CartRepository {
         ResultSet rs = null;
 
         try{
-            conn = DriverManager.getConnection("주소");
+            conn = getConnection();
             pstmt = conn.prepareStatement("select *from Cart");
             rs = pstmt.executeQuery();
 
@@ -43,7 +45,7 @@ public class CartRepository {
         ResultSet rs = null;
 
         try{
-            conn = DriverManager.getConnection("주송");
+            conn = getConnection();
             pstmt = conn.prepareStatement("insert into Cart() value()");
 
         }catch (Exception e){

@@ -1,14 +1,14 @@
 package domain;
 
 // 변수명 or 메서드명 : Camel Case ex) userId
-// DB 컬럼명 : Snake Case ex) user_id
+// DB 컬럼명 : Snake Case ex) userId
 public class Review{
 
     // PK
-    private int review_id;
+    private Long reviewId;
     // FK
-    private Long member_id;
-    private Long item_id;
+    private Long memberId;
+    private Long itemId;
     // NM
     private int stars;
     private String contents;
@@ -16,38 +16,42 @@ public class Review{
 
     //Session.getInstance().getCurrentMember().getMemberId() => Member 객체
 
-    public Review(Long member_id, Long item_id, int stars, String contents) {
-        this.member_id = member_id;
-        this.item_id = item_id;
+
+    public Review(Long reviewId, Long memberId, Long itemId, int stars, String contents, String date) {
+        this.reviewId = reviewId;
+        this.memberId = memberId;
+        this.itemId = itemId;
         this.stars = stars;
         this.contents = contents;
+        this.date = date;
     }
 
-//    public Review(Long item_id, int stars, String contents) {
-//        this.item_id = item_id;
-//        this.stars = stars;
-//        this.contents = contents;
-//    }
-
-    public int getReview_id() {
-        return review_id;
+    //정적 팩토리 메서드 패턴 vs builder 패턴
+    public static Review of(Long memberId, Long itemId, int stars, String contents) {
+        return new Review(null, memberId, itemId, stars, contents, null);
     }
-    public void setReview_id(int review_id) {
-        this.review_id = review_id;
+    public static Review of(Long reviewId, int stars, String contents) {
+        return new Review(reviewId, null, null, stars, contents, null);
     }
 
-    public Long getMemder_id() {
-        return memder_id;
+
+    public Long getReviewId() {
+        return reviewId;
     }
-    public void setMemder_id(int memder_id) {
-        this.memder_id = memder_id;
+    public void setReviewId(Long reviewId) {
+        this.reviewId = reviewId;
     }
 
-    public int getItem_id() {
-        return item_id;
+    public Long getMemderId() {return memberId;}
+    public void setmemberId(Long memberId) {
+        this.memberId = memberId;
     }
-    public void setItem_id(int item_id) {
-        this.item_id = item_id;
+
+    public Long getItemId() {
+        return itemId;
+    }
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public int getStars() {
@@ -74,9 +78,9 @@ public class Review{
     @Override
     public String toString() {
         return "Review{" +
-                "review_id=" + review_id +
-                ", memder_id=" + memder_id +
-                ", item_id=" + item_id +
+                "reviewId=" + reviewId +
+                ", memberId=" + memberId +
+                ", itemId=" + itemId +
                 ", stars=" + stars +
                 ", contents='" + contents + '\'' +
                 ", date='" + date + '\'' +

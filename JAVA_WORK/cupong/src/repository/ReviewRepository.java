@@ -26,14 +26,14 @@ public class ReviewRepository {
 
         try{
             conn = getConnection(); //커넥션 반환
-            pstmt = conn.prepareStatement("select * from Review");
+            pstmt = conn.prepareStatement("select * from review");
             rs = pstmt.executeQuery();
 
             while(rs.next()){
                 Review review = new Review(
-                        rs.getInt("review_id"),
-                        rs.getInt("member_id"),
-                        rs.getInt("item_id"),
+                        rs.getLong("reviewId"),
+                        rs.getLong("memberId"),
+                        rs.getLong("itemId"),
                         rs.getInt("stars"),
                         rs.getString("contents"),
                         rs.getString("date")
@@ -53,10 +53,10 @@ public class ReviewRepository {
 
         // 리뷰아이디(순번)나 회원아이디 제품 아이디는 자동으로???
         try{
-            LocalDateTime localDate = LocalDateTime.now();
             conn = getConnection();
+            LocalDateTime localDate = LocalDateTime.now();
             pstmt = conn.prepareStatement(
-                    "insert into Review(stars,contents,date) values(?, ?, ?)");
+                    "insert into review(stars,contents,date) values(?, ?, ?)");
             pstmt.setInt(1, review.getStars());
             pstmt.setString(2, review.getContents());
             pstmt.setObject(3, localDate);
@@ -76,11 +76,11 @@ public class ReviewRepository {
         PreparedStatement pstmt = null;
 
         try{
-            LocalDateTime localDateTime = LocalDateTime.now();
             conn = getConnection();
-            pstmt = conn.prepareStatement("update Review set stars=?, contents=?, date=? where review_id=?");
+            LocalDateTime localDateTime = LocalDateTime.now();
+            pstmt = conn.prepareStatement("update review set stars=?, contents=?, date=? where reviewId=?");
 
-            pstmt.setInt(4, review.getReview_id());
+            pstmt.setLong(4, review.getReviewId());
             pstmt.setInt(1, review.getStars());
             pstmt.setString(2, review.getContents());
             pstmt.setObject(3, localDateTime);
@@ -92,14 +92,14 @@ public class ReviewRepository {
     }
 
     // 리뷰삭제
-    public void delete(Review review){
+    public void delete(Long reviewId){
         Connection conn = null;
         PreparedStatement pstmt = null;
 
         try{
             conn = getConnection();
-            pstmt = conn.prepareStatement("delet from Review where review_id=?");
-            pstmt.setInt(1, review.getReview_id());
+            pstmt = conn.prepareStatement("delete from review where review_id=?");
+            pstmt.setLong(1, reviewId);
 
             pstmt.executeUpdate();
         }catch (Exception e){

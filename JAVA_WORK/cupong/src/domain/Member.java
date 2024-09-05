@@ -6,25 +6,25 @@ public class Member {
     protected String birth;
     protected String phone;
     protected String email;
-    protected String adress;
+    protected String address;
     
     // 역할 나누는 변수
     protected int role;
 
-    protected String roginid;
+    protected String loginId;
     protected String password;
     protected String home;
 
 
-    public Member(Long memberId, String name, String birth, String phone, String email, String adress, int role, String roginid, String password, String home) {
+    public Member(Long memberId, String name, String birth, String phone, String email, String address, int role, String loginId, String password, String home) {
         this.memberId = memberId;
         this.name = name;
         this.birth = birth;
         this.phone = phone;
         this.email = email;
-        this.adress = adress;
+        this.address = address;
         this.role = role;
-        this.roginid = roginid;
+        this.loginId = loginId;
         this.password = password;
         this.home = home;
     }
