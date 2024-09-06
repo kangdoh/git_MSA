@@ -26,25 +26,22 @@ public class OrderItemRepository {
     }
 
 
-    public Long findByItemIdAndMemberId(Long itemId,Long memberId) throws SQLException {
+    public Boolean findByItemIdAndMemberId(Long itemId,Long memberId) throws SQLException {
         conn = getConnection();
-        pstmt = conn.prepareStatement("select item_id" +
-                "from orderitem oi, order o" +
-                "where oi.order_id = o.order_id");
-
-//                ("select item_id " +
-//                "from orderitem i" +
-//                "INNER JOIN order o ON o.order_id = i.order_id" +
-//                " where item_id = ? AND member_id = ?");
+        pstmt = conn.prepareStatement
+                ("select * " +
+                "from orderitem i" +
+                "INNER JOIN order o ON o.order_id = i.order_id" +
+                " where item_id = ? AND member_id = ?");
 
         pstmt.setLong(1,itemId);
         pstmt.setLong(2,memberId);
         rs = pstmt.executeQuery();
 
-        Long itemid = null;
-        while (rs.next()){
-            itemid = rs.getLong("item_id");
+        if (rs.next()) {
+            return true;
+        } else {
+            return false;
         }
-        return itemid;
     }
 }

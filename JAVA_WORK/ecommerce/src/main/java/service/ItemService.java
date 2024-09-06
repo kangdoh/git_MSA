@@ -67,9 +67,8 @@ public class ItemService {
         // orders, order_item 조인 where item_id = ? AND member_id = ?
         // 검증
 
-        Long byItemIdAndMemberId = orderItemRepository.findByItemIdAndMemberId(itemId, memberId);
-
-        if (byItemIdAndMemberId != null){
+        Boolean byItemIdAndMemberId = orderItemRepository.findByItemIdAndMemberId(itemId, memberId);
+        if (byItemIdAndMemberId){
             //성공 시
             System.out.println("평점을 입력해주세요.");
             int stars = scan.nextInt();
