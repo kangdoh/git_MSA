@@ -21,10 +21,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
+@Builder
 
 @ToString
 @Getter
