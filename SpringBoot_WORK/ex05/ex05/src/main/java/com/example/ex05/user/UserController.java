@@ -3,6 +3,7 @@ package com.example.ex05.user;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.util.List;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final UserService userService;
 
     @GetMapping("select")
     public List<User> select(){
@@ -22,36 +24,22 @@ public class UserController {
     }
 
     @PostMapping("insert")
-    public String insert(@Valid @RequestBody UserReqDto userReqDto){
-        userReqDto.setWdate(LocalDateTime.now());
-        System.out.println("실행");
+    public ResponseEntity<String> insert(@Valid @RequestBody UserReqDto userReqDto){
 
-        // save insert 실행...
-//        User user = User.builder()
-//                .name("홍길동")
-//                .age(20)
-//                .email("aaa@naver.com")
-//                .password("password")
+        userService.insert(userReqDto);
 
-//                .wdate(LocalDateTime.now())
-//                .build();
-
-        ModelMapper modelMapper = new ModelMapper();
-        User user = modelMapper.map(userReqDto, User.class);
-
-        userRepository.save(user);
-        return "ok";
+        return ResponseEntity.status(200).body("success insert");
     }
 
     @PutMapping("update")
-    public String update(@Valid @RequestBody UserReqDto userReqDto) {
+    public ResponseEntity<String> update(@Valid @RequestBody UserReqDto userReqDto) {
         userReqDto.setWdate(LocalDateTime.now());
         System.out.println("실행");
         ModelMapper modelMapper = new ModelMapper();
         User user = modelMapper.map(userReqDto, User.class);
 
         userRepository.save(user);
-        return "ok";
+        return ResponseEntity.status(200).body("success update");
     }
 
     @DeleteMapping("delete/{idx}")
