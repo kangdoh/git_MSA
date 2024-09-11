@@ -1,4 +1,4 @@
-package com.example.ex05.user;
+package com.example.ex07.user;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

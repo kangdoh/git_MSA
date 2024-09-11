@@ -1,4 +1,4 @@
-package com.example.ex05.user;
+package com.example.ex07.user;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
