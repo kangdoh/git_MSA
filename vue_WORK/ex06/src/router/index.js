@@ -1,14 +1,35 @@
-import TheFreeboard from "@/views/TheFreeboard.vue";
+import TheFreeboardInput from "@/views/freeboard/TheFreeboardInput.vue";
+import TheFreeBoardList from "@/views/freeboard/TheFreeBoardList.vue";
 import TheHome from "@/views/TheHome.vue";
 import TheUser from "@/views/TheUser.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
-  history:createWebHashHistory(),
+  history:createWebHistory(),
   routes:[
-    {path:'/', component: TheHome},
-    {path:'/freeboard', component: TheFreeboard},
-    {path:'/user', component: TheUser}
+    {
+      path:'/',
+      name : 'home',
+      component: TheHome
+    },
+
+    {
+      path:'/user',
+      name : 'user',
+      component: TheUser
+    },
+
+    {
+      path:'/freeboardinput',
+      name : 'freeboardinput',
+      component: TheFreeboardInput
+    },
+
+    {
+      path:'/freeboardlist', 
+      name :'freeboardlist',
+      component: TheFreeBoardList
+    }
   ]
 });
 
