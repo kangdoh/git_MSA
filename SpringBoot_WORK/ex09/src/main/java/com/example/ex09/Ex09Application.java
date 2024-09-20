@@ -11,13 +11,16 @@ import java.util.Arrays;
 @EnableJpaAuditing
 
 public class Ex09Application {
-
 	public static void main(String[] args) {
+
 		ApplicationContext applicationContext =
 				SpringApplication.run(Ex09Application.class, args);
 
 		Arrays.stream(applicationContext.getBeanDefinitionNames())
 				.forEach(System.out::println);
+
+
+
 
 
 	}

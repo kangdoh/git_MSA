@@ -19,13 +19,37 @@
 
 <script setup>
 import axios from 'axios';
+// ref는 반응형 생성데이터이다.
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
+// const title = ref('');
+// const content = ref('');
+const router = useRouter();
+// const route = useRoute();
+
+
 const title = ref('');
 const content = ref('');
+// const regdate = ref('');
+// const creAuthor = ref('');
+// const idx = ref(0);
 
-const router = useRouter();
+// const getFreeBoard = () =>{
+//   axios.get(`http://localhost:8080/freeboard/view/${route.params.idx}`)
+//     .then(res => {
+//       title.value =res.data.title;
+//       content.value =res.data.content;
+//       regdate.value =res.data.regdate;
+//       creAuthor.value =res.data.creAuthor;
+//       idx.value =res.data.idx;
+//     })
+//     .catch(e => {
+//       console.log(e);
+//       alert(e.response.dat.message);
+//       router.push({name:"freeboardlist"})
+//     })
+// }
 
 const save = () => {
   const data = {

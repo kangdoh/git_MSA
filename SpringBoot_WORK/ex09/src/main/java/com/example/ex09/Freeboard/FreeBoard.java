@@ -8,6 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
@@ -20,7 +21,7 @@ import java.time.LocalDateTime;
 @Setter
 
 @EntityListeners(AuditingEntityListener.class)
-public class freeBoard {
+public class FreeBoard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,10 +40,12 @@ public class freeBoard {
     @LastModifiedBy
     private String modAauthor;
 
+
     @CreatedDate
     private LocalDateTime regDate;
+
     @LastModifiedDate
-    private LocalDateTime moDAte;
+    private LocalDateTime modate;
 
     @Column(columnDefinition = "int default 0")
     private int view_count;

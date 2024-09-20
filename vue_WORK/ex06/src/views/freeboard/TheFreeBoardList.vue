@@ -1,30 +1,40 @@
 <template>
   <div>
-    <h1 class="h1_red">FreeBoardList</h1>    
+    <h1 class="h1_red">FreeBoardList</h1>
+    
+    <div>
+      <table class="tata">
+        <thead>
+          <tr>
+            <th>IDX</th>
+            <th>title</th>
+            <th>content</th>
+            <th>author</th>
+            <th>redate</th>
+            <th>viewcount</th>
+          </tr>
+        </thead>
+        <tbody class="sss">
+          <tr v-for="item in arr" :key="item.idx">
+            <td>{{ item.idx }}</td>
+            <td @click="viewPage(item.idx)">{{ item.title }}</td>
+            <td>{{ item.content }}</td>
+            <td>{{ item.creAuthor }}</td>
+            <td>{{ item.regDate }}</td>
+            <td>{{ item.viewCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div>
+      <ul class="dfasdf">
+        <li v-for="num in totalPages" v-bind:key="num" @click="setPageNum(num-1)">
+          {{ num }}
+        </li>
+      </ul>
+    </div>
 
-    <table class="tata">
-      <thead>
-        <tr>
-          <th>IDX</th>
-          <th>title</th>
-          <th>content</th>
-          <th>author</th>
-          <th>redate</th>
-          <th>viewcount</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr v-for="item in arr" :key="item.idx">
-          <td>{{ item.idx }}</td>
-          <td>{{ item.title }}</td>
-          <td>{{ item.content }}</td>
-          <td>{{ item.creAuthor }}</td>
-          <td>{{ item.regDate }}</td>
-          <td>{{ item.viewCount }}</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </template>
 
@@ -32,33 +42,53 @@
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 
-// const title = ref('');
-// const content = ref('');
 
-const route = useRoute();
-console.log("route.params.aa = "+route.params.aa);
-console.log("route.params.bb = "+route.params.bb);
-
+const router = useRouter();
 const arr = ref([]);
-axios.get('http://localhost:8080/freeBoard')
-.then(res => {
-  console.log(res.data);
-  arr.value = res.data;
-})
-.catch(e => {
-  console.log(e);
-})
+const totalPages = ref(10);
+const pageNum = ref(0);
 
-
+const setPageNum = (num) => { 
+  pageNum.value = num;
+  getFreeBoard(num);
+}
+const viewPage = (idx) => {
+  const data = { name: 'freeboardview', params: { idx } };
+  router.push(data);
+}
+const getFreeBoard = (pageNum) => {
+  if (pageNum == undefined) pageNum = 0;
+  axios.get(`http://localhost:8080/freeboard?pageNum=${pageNum}`)
+    .then(res => {
+      arr.value = res.data.list;
+      totalPages.value = res.data.totalPages;
+    })
+    .catch(e => {
+      console.log(e);
+    })
+}
+// page 호출되자 마자 자동실행
+getFreeBoard();
 
 </script>
-
 
 
 <style scoped>
   .tata{
     border: 1px solid #000;
+  }
+  .dfasdf{
+    list-style: none;
+    display: flex;
+  }
+  .dfasdf li{
+    margin: 10px;
+    cursor: pointer;
+    padding: 5px
+  }
+  .sss tr:hover{
+    background-color: aliceblue;
   }
 </style>

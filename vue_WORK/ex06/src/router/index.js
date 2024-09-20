@@ -1,5 +1,6 @@
-import TheFreeboardInput from "@/views/freeboard/TheFreeboardInput.vue";
+import TheFreeboardInput from "@/views/freeboard/TheFreeBoardInput.vue";
 import TheFreeBoardList from "@/views/freeboard/TheFreeBoardList.vue";
+import TheFreeBoardView from "@/views/freeboard/TheFreeBoardView.vue";
 import TheHome from "@/views/TheHome.vue";
 import TheUser from "@/views/TheUser.vue";
 import { createRouter, createWebHistory } from "vue-router";
@@ -29,6 +30,11 @@ const router = createRouter({
       path:'/freeboardlist', 
       name :'freeboardlist',
       component: TheFreeBoardList
+    },
+    {
+      path: '/freeboardview/:idx',
+      name: 'freeboardview',
+      component: TheFreeBoardView
     }
   ]
 });
