@@ -60,7 +60,8 @@ const viewPage = (idx) => {
 }
 const getFreeBoard = (pageNum) => {
   if (pageNum == undefined) pageNum = 0;
-  axios.get(`http://localhost:8080/freeboard?pageNum=${pageNum}`)
+  // url?변수 방식이 쿼리 파라미터라고 함
+  axios.get(`http://localhost:8080/freeBoard?pageNum=${pageNum}`)
     .then(res => {
       arr.value = res.data.list;
       totalPages.value = res.data.totalPages;

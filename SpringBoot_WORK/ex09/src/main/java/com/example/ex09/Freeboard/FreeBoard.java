@@ -19,11 +19,10 @@ import java.time.LocalDateTime;
 @ToString
 @Getter
 @Setter
-
 @EntityListeners(AuditingEntityListener.class)
 public class FreeBoard {
 
-    @Id
+    @Id // primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 

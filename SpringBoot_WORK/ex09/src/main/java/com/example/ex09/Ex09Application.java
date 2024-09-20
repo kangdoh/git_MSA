@@ -16,8 +16,8 @@ public class Ex09Application {
 		ApplicationContext applicationContext =
 				SpringApplication.run(Ex09Application.class, args);
 
-		Arrays.stream(applicationContext.getBeanDefinitionNames())
-				.forEach(System.out::println);
+//		Arrays.stream(applicationContext.getBeanDefinitionNames())
+//				.forEach(System.out::println);
 
 
 

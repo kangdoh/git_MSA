@@ -8,8 +8,9 @@ import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
 
+// request DTO : 사용자의 요청을 매핑시키는 클래스
 @Data
-public class FreeBoardReqData {
+public class FreeBoardReqDto {
 
     private Long idx;
 

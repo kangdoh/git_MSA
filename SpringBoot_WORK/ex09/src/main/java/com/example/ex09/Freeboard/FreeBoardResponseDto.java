@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-
+// response DTO : 프론트에게 응답해주기 위한 클래스
 @Data
 public class FreeBoardResponseDto {
 
