@@ -26,7 +26,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("freeBoard") // http://localhost:8080/freeBoard
 @Slf4j // log.info 사용
-@RequiredArgsConstructor
+@RequiredArgsConstructor // 생성자 자동 생성(lombok)
 @CrossOrigin
 public class FreeBoardController {
     /**
@@ -91,12 +91,12 @@ public class FreeBoardController {
     }
 
 
+    // id를 받아서 그 아이디의 정보를 찾아오는 상황
     // /freeBoard/view/1
     @GetMapping("view/{idx}") // 예시) /freeBoard/view/1
     public ResponseEntity<FreeBoardResponsePageDto> findOne(@PathVariable(name = "idx") long idx){
 //        log.info("idx = {}", idx);
-
-
+        
         FreeBoard freeBoard = freeBoardRepository.findById(idx)
                 .orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
 
@@ -106,6 +106,7 @@ public class FreeBoardController {
     };
 
 
+    // 데이터를 받아오는 상황(저장)
     @PostMapping
     public ResponseEntity<FreeBoard> save(@Valid @RequestBody FreeBoardReqDto freeBoardReqDto) {
         FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto, FreeBoard.class);
