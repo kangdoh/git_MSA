@@ -11,6 +11,7 @@ import java.util.Arrays;
 
 public class Ex01Application {
 
+
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = SpringApplication.run(Ex01Application.class, args);
 		Arrays.stream(
@@ -19,5 +20,6 @@ public class Ex01Application {
 						.forEach(System.out::println);
 		SpringApplication.run(Ex01Application.class, args);
 	}
+
 
 }

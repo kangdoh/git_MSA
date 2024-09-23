@@ -60,7 +60,7 @@ const save = () => {
 
   // 여기서 freeBoard는 테이블 명이다. data는 객채의 변수명이다.
   axios
-    .post('http://localhost:8080/freeBoard', data)
+    .post('http://localhost:10000/freeBoard', data)
     .then((res) => {
       console.log(res);
       alert('저장');
