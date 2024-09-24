@@ -39,7 +39,9 @@ public class FreeBoard {
     private String modAauthor;
 
 
+
     @CreatedDate
+    @Column(updatable = false)
     private LocalDateTime regDate;
 
     @LastModifiedDate

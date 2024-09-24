@@ -1,5 +1,7 @@
+import Fileupload from "@/views/FileUpLoad.vue";
 import TheFreeboardInput from "@/views/freeboard/TheFreeBoardInput.vue";
 import TheFreeBoardList from "@/views/freeboard/TheFreeBoardList.vue";
+import TheFreeBoardUpdate from "@/views/freeboard/TheFreeBoardUpdate.vue";
 import TheFreeBoardView from "@/views/freeboard/TheFreeBoardView.vue";
 import TheHome from "@/views/TheHome.vue";
 import TheUser from "@/views/TheUser.vue";
@@ -35,6 +37,16 @@ const router = createRouter({
       path: '/freeboardview/:idx',
       name: 'freeboardview',
       component: TheFreeBoardView
+    },
+    {
+      path: '/freeboardupdate/:idx',
+      name: 'freeboardupdate',
+      component: TheFreeBoardUpdate
+    },
+    {
+      path: '/fileupload',
+      name: 'fileupload',
+      component: Fileupload
     }
   ]
 });
@@ -42,3 +54,7 @@ const router = createRouter({
 export default router;
 
 
+// router -> 페이지이동
+// route ->
+// param : http://localhost
+// query : 

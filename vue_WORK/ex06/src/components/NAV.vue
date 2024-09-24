@@ -7,11 +7,13 @@
 
       <li class="gkgkgk">
         freeBoard
-        <ul>
+        <ul class="ddfa">
           <li><RouterLink to="/freeboardinput">freeboardinput</RouterLink></li>
           <li><RouterLink to="/freeboardlist">freeboardlist</RouterLink></li>
         </ul>
       </li>
+
+      <li><RouterLink to="/fileupload">fileupload</RouterLink></li>
     </ul>
   </div>
 </template>
@@ -41,4 +43,9 @@ import { RouterLink } from 'vue-router'
 .gkgkgk:hover li {
   display: block;
 }
+.ddfa{
+  padding: 0;
+  margin: 0;
+}
+
 </style>

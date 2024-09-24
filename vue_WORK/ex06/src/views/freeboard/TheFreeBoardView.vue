@@ -21,14 +21,13 @@ import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 
-
 const route = useRoute();
 const router = useRouter();
 
-const title = ref('초기값');
-const content = ref('초기값');
-const regdate = ref('초기값');
-const creAuthor = ref('초기값');
+const title = ref('');
+const content = ref('');
+const regdate = ref('');
+const creAuthor = ref('');
 const idx = ref(0);
 
 const deletee = (idx) =>{
@@ -41,10 +40,11 @@ const deletee = (idx) =>{
   .catch(e => console.log(e));
 }
 
+// ?ghjhg query
+// /idx/ params
 const pageMove = ()=>{
-  router.push({name:"freeboardinput", query:{idx:idx.value}});
+  router.push({name:"freeboardupdate", query:{idx:idx.value}});
 }
-
 
 const getFreeBoard = () =>{
   axios.get(`http://localhost:10000/freeboard/view/${route.params.idx}`)
@@ -54,16 +54,18 @@ const getFreeBoard = () =>{
       regdate.value =res.data.regdate;
       creAuthor.value =res.data.creAuthor;
       idx.value =res.data.idx;
+      console.log(res)
     })
     .catch(e => {
       console.log(e);
-      alert(e.response.dat.message);
+      alert(e.response.data.message);
       router.push({name:"freeboardlist"})
     })
 }
 getFreeBoard();
-
 </script>
+
+
 
 <style lang="scss" scoped>
 

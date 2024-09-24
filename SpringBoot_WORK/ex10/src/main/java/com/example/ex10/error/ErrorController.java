@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Set;
 
+// 커스텀한 에러를 던지면 이것을 인식할수 있도록 이 컨트롤러가 작동된다.
 @ControllerAdvice
 public class ErrorController {
 

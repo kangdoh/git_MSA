@@ -1,0 +1,24 @@
+:root {
+  --main-color-001: red;
+  --main-color-002: blue;
+  --main-color-003: yellow;
+
+  --black-color-000: #000000;
+  --white-color-fff: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--black-color-000);
+}
+img {
+  vertical-align: bottom;
+}

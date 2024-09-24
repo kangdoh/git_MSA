@@ -1,5 +1,4 @@
 package com.example.ex10.Freeboard;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 // JpaRepository<엔티티, 식별자의 타입>
