@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -110,7 +111,9 @@ public class FreeBoardController {
 
 
     // 데이터를 받아오는 상황(저장)
-    @PostMapping
+    @PostMapping(
+            produces = MediaType
+    )
     public ResponseEntity<FreeBoard> save(@Valid @RequestBody FreeBoardReqDto freeBoardReqDto) {
 
         FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto, FreeBoard.class);

@@ -9,6 +9,11 @@
         <p>작성자 : {{ creAuthor }}</p>
       </div>
 
+      <div v-for="item in list" :key="item">
+        <img src="" alt="">
+        {{ item.name }}
+      </div>
+
       <div>
         <button @click="pageMove(idx)">수정</button>
         <button @click="deletee(idx)">삭제</button>
@@ -29,6 +34,7 @@ const content = ref('');
 const regdate = ref('');
 const creAuthor = ref('');
 const idx = ref(0);
+const list = ref('');
 
 const deletee = (idx) =>{
   axios.delete(`http://localhost:10000/freeboard/delete/${idx}`)
@@ -54,6 +60,7 @@ const getFreeBoard = () =>{
       regdate.value =res.data.regdate;
       creAuthor.value =res.data.creAuthor;
       idx.value =res.data.idx;
+      list.value = res.date.list;
       console.log(res)
     })
     .catch(e => {

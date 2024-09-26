@@ -11,6 +11,10 @@
         <label for="content">내용:</label>
         <textarea v-model="content" id="content" rows="4" required></textarea>
 
+        <div>
+          <input @change="onFileChange" type="file" name="" id="">
+        </div>
+
         <button @click="save" type="button">게시</button>
       </form>
     </div>
@@ -23,44 +27,35 @@ import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-// const title = ref('');
-// const content = ref('');
 const router = useRouter();
-// const route = useRoute();
-
-
 const title = ref('');
 const content = ref('');
-// const regdate = ref('');
-// const creAuthor = ref('');
-// const idx = ref(0);
+const myfile = ref(null);
 
-// const getFreeBoard = () =>{
-//   axios.get(`http://localhost:8080/freeboard/view/${route.params.idx}`)
-//     .then(res => {
-//       title.value =res.data.title;
-//       content.value =res.data.content;
-//       regdate.value =res.data.regdate;
-//       creAuthor.value =res.data.creAuthor;
-//       idx.value =res.data.idx;
-//     })
-//     .catch(e => {
-//       console.log(e);
-//       alert(e.response.dat.message);
-//       router.push({name:"freeboardlist"})
-//     })
-// }
+const onFileChange = (e)=>{
+  myfile.value = e.target.files[0];
+}
 
-const save = () => {
+const save = () => {  
   const data = {
     // title:과 content:는 칼럼명입니다.
     title: title.value,
     content: content.value
   };
+  
+  const formDate = new FormData();
+  formDate.append("date",new Blob(
+    [ JSON.stringify(data)],
+    {type:'application/json'}
+  ))
+  formDate.append('file', myfile.value);
 
-  // 여기서 freeBoard는 테이블 명이다. data는 객채의 변수명이다.
   axios
-    .post('http://localhost:10000/freeboard', data)
+    .post('http://localhost:10000/freeboard', formDate,
+      {headers:{
+        'Content-Type': 'multipart/form-date'
+      }}
+    )
     .then((res) => {
       console.log(res);
       alert('저장');
@@ -72,6 +67,7 @@ const save = () => {
     });
 };
 </script>
+
 
 <style scoped>
 .h1h1h1 {

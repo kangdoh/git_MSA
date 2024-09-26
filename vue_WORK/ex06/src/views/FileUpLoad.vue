@@ -16,8 +16,8 @@
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
+const myfile = ref();
 
-const myfile = ref('')
 const save =()=>{
     // console.log(Boolean(myfile.value)); -> 값이 있으면 true
     if( !myfile.value ){

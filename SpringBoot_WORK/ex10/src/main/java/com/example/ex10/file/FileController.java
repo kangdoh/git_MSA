@@ -33,23 +33,14 @@ public class FileController {
 
     @GetMapping("test")
     public String test(){
-
         return "test";
     }
 
     @PostMapping(value = "upload", produces = MediaType.APPLICATION_JSON_VALUE)
     public String upload(@RequestPart(name="file")MultipartFile file,
-                         @RequestPart(name="fileDto")HashMap<String, String>map){
+                         @RequestPart(name="fileDto") FileReqeustDto fileReqeustDto){
         System.out.println(file);
-        System.out.println(map);
-
         return "upload";
-    }
-
-
-    @Data
-    class FileDto{
-        private String name;
     }
 
 }
