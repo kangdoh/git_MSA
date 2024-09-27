@@ -5,6 +5,9 @@
       <input type="text" v-model="title" placeholder="Enter your title here" />
       <textarea v-model="content" placeholder="Enter Content here"></textarea>
     </div>
+    <div>
+      <input type="file" @change="onFileChange">
+    </div>
   </div>
   <div>
     <button @click="save">수정</button>
@@ -23,6 +26,13 @@ const creAuthor = ref('');
 const idx = ref(0);
 const router = useRouter();
 const route = useRoute();
+
+const myfile = ref(null);
+
+const onFileChange = (e)=>{
+  myfile.value = e.target.files[0];
+}
+
 
 // 자동으로 리스트에 데이터를 불러오는 함수
 const getfreeboard = () => {
@@ -49,8 +59,16 @@ const save = () => {
     title: title.value,
     content: content.value
   };
+
+  const formDate = new FormData();
+  formDate.append("date",new Blob(
+    [ JSON.stringify(data)],
+    {type:'application/json'}
+  ))
+  formDate.append('file', myfile.value);
+
   axios
-    .post('http://localhost:10000/freeboard', data)
+    .post('http://localhost:10000/freeboard', formDate)
     .then((res) => {
       console.log(res);
       alert('저장');

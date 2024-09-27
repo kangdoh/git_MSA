@@ -1,10 +1,10 @@
-import Fileupload from "@/views/FileUpLoad.vue";
+import Fileupload from "@/views/files/FileUpLoad.vue";
 import TheFreeboardInput from "@/views/freeboard/TheFreeBoardInput.vue";
 import TheFreeBoardList from "@/views/freeboard/TheFreeBoardList.vue";
 import TheFreeBoardUpdate from "@/views/freeboard/TheFreeBoardUpdate.vue";
 import TheFreeBoardView from "@/views/freeboard/TheFreeBoardView.vue";
 import TheHome from "@/views/TheHome.vue";
-import TheUser from "@/views/TheUser.vue";
+import TheUserList from "@/views/users/TheUserList.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -19,7 +19,7 @@ const router = createRouter({
     {
       path:'/user',
       name : 'user',
-      component: TheUser
+      component: TheUserList
     },
 
     {
