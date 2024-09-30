@@ -13,6 +13,7 @@ public class FreeBoardResponseDto {
     private User user;
     private String regDate;
     private String modDate;
-    private int view_count;
+    private int viewCount;
+
 
 }

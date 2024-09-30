@@ -3,6 +3,7 @@ import TheFreeboardInput from "@/views/freeboard/TheFreeBoardInput.vue";
 import TheFreeBoardList from "@/views/freeboard/TheFreeBoardList.vue";
 import TheFreeBoardUpdate from "@/views/freeboard/TheFreeBoardUpdate.vue";
 import TheFreeBoardView from "@/views/freeboard/TheFreeBoardView.vue";
+import Test from "@/views/Test.vue";
 import TheHome from "@/views/TheHome.vue";
 import TheUserList from "@/views/users/TheUserList.vue";
 import { createRouter, createWebHistory } from "vue-router";
@@ -47,7 +48,13 @@ const router = createRouter({
       path: '/fileupload',
       name: 'fileupload',
       component: Fileupload
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: Test
     }
+
   ]
 });
 

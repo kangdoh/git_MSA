@@ -16,7 +16,7 @@ import java.util.List;
 public class UserController {
 
     private final UserRepository userRepository;
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @GetMapping("select")
     public List<User> select(){
@@ -37,6 +37,7 @@ public class UserController {
         System.out.println("실행");
         ModelMapper modelMapper = new ModelMapper();
         User user = modelMapper.map(userReqDto, User.class);
+
 
         userRepository.save(user);
         return ResponseEntity.status(200).body("success update");

@@ -28,6 +28,6 @@ public class FreeBoardReqDto {
     @Schema(hidden = true)
     private LocalDateTime moDAte;
 
-    private int view_count;
+    private int viewCount;
 
 }

@@ -17,6 +17,9 @@ server:
 spring:
   application:
     name: ex10
+  sql:
+    init:
+      mode: always
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
@@ -26,13 +29,12 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
-      properties:
-        hibernate.format_sql: true
+      ddl-auto: create
+    properties:
+      hibernate.format_sql: true
     show-sql: true
     open-in-view: false
     defer-datasource-initialization: true
-
 my:
   value: "welcome to vasdfa"
 

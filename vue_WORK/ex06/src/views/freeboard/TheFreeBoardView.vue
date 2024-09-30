@@ -57,15 +57,14 @@ const getFreeBoard = () =>{
     .then(res => {
       title.value =res.data.title;
       content.value =res.data.content;
-      regdate.value =res.data.regdate;
-      creAuthor.value =res.data.creAuthor;
+      regdate.value =res.data.reg_date;
+      creAuthor.value =res.data.cre_author;
       idx.value =res.data.idx;
-      list.value = res.date.list;
-      console.log(res)
+      console.log(res);
     })
     .catch(e => {
       console.log(e);
-      alert(e.response.data.message);
+      // alert(e.response.data.message);
       router.push({name:"freeboardlist"})
     })
 }

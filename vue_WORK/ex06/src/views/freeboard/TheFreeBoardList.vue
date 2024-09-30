@@ -19,20 +19,21 @@
           <!-- arr가 true이면 -> 뒤에 것 실행 이런방향성으로 생각하자 -->
           <template v-if="arr && arr.length>0">
 
-            <tr v-for="item in arr" :key="item.idx">
+            <tr v-for="item in arr" :key="item.idx" @click="viewPage(item.idx)">
 
               <td>{{ item.idx }}</td>
-              <td @click="viewPage(item.idx)">{{ item.title }}</td>
+              <td>{{ item.title }}</td>
               <td>{{ item.content }}</td>
               <td>{{ item.creAuthor }}</td>
               <td>{{ item.regDate }}</td>
               <td>{{ item.viewCount }}</td>
 
-              <template v-if="item.list[0]">
-                <td>
-
+              <!-- <template v-if="item.list[0]">
+                <td >
+                  <img :src="`http:localhost:10000/file/download/${item.list[0].name}`" alt="" width="150">
                 </td>
-              </template>
+              </template> -->
+
             </tr>
           </template>
         </tbody>
@@ -87,6 +88,7 @@ const getFreeBoard = (pageNum) => {
   axios.get(`http://localhost:10000/freeboard?pageNum=${pageNum}`)
     .then(res => {
       //여기서 list는 데이터베이스의 실제 칼럼명
+      console.log(res.data.list);
       arr.value = res.data.list;
       totalPages.value = res.data.totalPages;
     })

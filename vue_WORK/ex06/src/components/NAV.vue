@@ -14,6 +14,7 @@
       </li>
 
       <li><RouterLink to="/fileupload">fileupload</RouterLink></li>
+      <li><RouterLink to="/test">test</RouterLink></li>
     </ul>
   </div>
 </template>

@@ -44,16 +44,16 @@ public class FreeBoardController {
     }
 
     @GetMapping
-    public ResponseEntity<FreeBoardResponsePageDto> findALl(@RequestParam(name = "pageNum", defaultValue = "0") int pageNum
-            , @RequestParam(name = "size", defaultValue = "5") int size) {
+    public ResponseEntity<FreeBoardResponsePageDto> findAll(@RequestParam(name = "pageNum", defaultValue = "0") int pageNum
+            , @RequestParam(name = "size", defaultValue = "5") int size){
 
-        Sort sort = Sort.by(Sort.Direction.DESC, "idx");
+        Sort sort = Sort.by(Sort.Direction.DESC, "regDate");
         Pageable pageable = PageRequest.of(pageNum, size, sort);
 
         Page<FreeBoard> page = freeBoardRepository.findAll(pageable);
-        FreeBoardResponsePageDto freeBoardResponsePageDto = modelMapper.map(page, FreeBoardResponsePageDto.class);
+        FreeBoardResponsePageDto freeboardResponsePageDto = modelMapper.map(page, FreeBoardResponsePageDto.class);
 
-        List<FreeBoardResponseDto> list = freeBoardResponsePageDto
+        List<FreeBoardResponseDto> list = freeboardResponsePageDto
                 .getContent()
                 .stream()
                 .map(freeBoard -> {
@@ -64,8 +64,10 @@ public class FreeBoardController {
                     return freeBoardResponseDto;
                 }).toList();
 
-        freeBoardResponsePageDto.setList(list);
-        return ResponseEntity.ok(freeBoardResponsePageDto);
+
+        freeboardResponsePageDto.setList(list);
+
+        return ResponseEntity.ok(freeboardResponsePageDto);
     }
 
     @GetMapping("view/{idx}")
@@ -83,6 +85,7 @@ public class FreeBoardController {
         return ResponseEntity.ok(freeBoardResponseDto);
     }
 
+    // update
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE
@@ -91,11 +94,9 @@ public class FreeBoardController {
             @Valid @RequestPart(name = "data") FreeBoardReqDto freeBoardReqDto,
             @RequestPart(name = "file", required = false) MultipartFile file) {
 
-
         FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto, FreeBoard.class);
         freeBoardRepository.save(freeBoard);
 
-        System.out.println(freeBoardReqDto);
         if (file != null) {
             String myFilePath = Paths.get("images/file/").toAbsolutePath() + "\\" + file.getOriginalFilename();
             try {
@@ -104,13 +105,13 @@ public class FreeBoardController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        FileEntity fileEntity = new FileEntity();
-        fileEntity.setName(file.getOriginalFilename());
-        fileEntity.setPath(Paths.get("images/file/").toAbsolutePath().toString());
-        fileEntity.setFreeBoard(freeBoard);
 
-        fileRepository.save(fileEntity);
+            FileEntity fileEntity = new FileEntity();
+            fileEntity.setName(file.getOriginalFilename());
+            fileEntity.setPath(Paths.get("images/file/").toAbsolutePath().toString());
+            fileEntity.setFreeBoard(freeBoard);
+            fileRepository.save(fileEntity);
+        }
         return ResponseEntity.status(200).body(freeBoard);
     }
 
@@ -121,6 +122,5 @@ public class FreeBoardController {
         freeBoardRepository.deleteById(idx);
         return ResponseEntity.ok("삭제되었습니다.");
     }
-
 
 }

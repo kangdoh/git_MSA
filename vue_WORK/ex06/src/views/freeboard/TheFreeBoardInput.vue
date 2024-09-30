@@ -44,7 +44,7 @@ const save = () => {
   };
   
   const formDate = new FormData();
-  formDate.append("date",new Blob(
+  formDate.append("data",new Blob(
     [ JSON.stringify(data)],
     {type:'application/json'}
   ))
@@ -53,13 +53,13 @@ const save = () => {
   axios
     .post('http://localhost:10000/freeboard', formDate,
       {headers:{
-        'Content-Type': 'multipart/form-date'
+        'Content-Type': 'multipart/form-data'
       }}
     )
     .then((res) => {
       console.log(res);
       alert('저장');
-      router.push({ name: 'freeboardlist', params:{aa:10, bb:"안녕하세요."} });
+      router.push({ name: 'freeboardlist', params:{} });
     })
     .catch((e) => {
       console.log(e);

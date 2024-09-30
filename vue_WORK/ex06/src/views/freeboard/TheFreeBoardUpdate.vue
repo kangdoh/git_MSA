@@ -33,7 +33,6 @@ const onFileChange = (e)=>{
   myfile.value = e.target.files[0];
 }
 
-
 // 자동으로 리스트에 데이터를 불러오는 함수
 const getfreeboard = () => {
   axios
@@ -61,18 +60,14 @@ const save = () => {
   };
 
   const formDate = new FormData();
-  formDate.append("date",new Blob(
-    [ JSON.stringify(data)],
-    {type:'application/json'}
-  ))
+  formDate.append("data",new Blob([ JSON.stringify(data)], {type:'application/json'}));
   formDate.append('file', myfile.value);
-
   axios
     .post('http://localhost:10000/freeboard', formDate)
     .then((res) => {
       console.log(res);
       alert('저장');
-      router.push({ name: 'freeboardlist', params: {pageNum:0} });
+      router.push({ name:'freeboardlist', params:{pageNum:0} });
     })
     .catch((e) => {
       console.log(e);

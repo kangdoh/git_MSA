@@ -58,10 +58,6 @@ public class User {
     @OneToMany(mappedBy = "user",
     fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<FreeBoard> list = new ArrayList<>();
-    
-
-
-
 
 }
 

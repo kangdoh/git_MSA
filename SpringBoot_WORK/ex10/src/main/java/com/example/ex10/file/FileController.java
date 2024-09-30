@@ -75,11 +75,11 @@ public class FileController {
         if (!resource.exists()) {
             throw new FileNotFoundException("파일을 찾을 수 없습니다: " + fileName);
         }
-
         // 파일을 전송
         return ResponseEntity.ok()
                 .contentType(MediaType.IMAGE_JPEG) // 또는 MediaType.IMAGE_PNG 등으로 변경 가능
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"")
                 .body(resource);
     }
+
 }

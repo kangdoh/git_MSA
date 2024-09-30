@@ -19,7 +19,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
@@ -49,13 +48,25 @@ public class FreeBoard {
     @Column(columnDefinition = "int default 0")
     private int viewCount;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "freeBoard")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "freeBoard", cascade = CascadeType.ALL)
     private List<FileEntity> list = new ArrayList<>();
-
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     private User user;
 
-
+    @Override
+    public String toString() {
+        return "FreeBoard{" +
+                "idx=" + idx +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", creAuthor='" + creAuthor + '\'' +
+                ", modAuthor='" + modAuthor + '\'' +
+                ", regDate=" + regDate +
+                ", modDate=" + modDate +
+                ", viewCount=" + viewCount +
+                ", list=" + list +
+                '}';
+    }
 }
