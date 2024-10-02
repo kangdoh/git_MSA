@@ -1,68 +1,68 @@
 <template>
-  <div>
-    <h1 class="h1_red">FreeBoardList</h1>
-    
-    <div>
-      <table class="tata">
+  <div class="pb-10">
+    <h1 class="h1-red">FreeBoardList</h1>
+    <div class="px-5">
+      <table class="border border-b-gray-500 w-full">
         <thead>
           <tr>
-            <th>IDX</th>
-            <th>title</th>
-            <th>content</th>
-            <th>author</th>
-            <th>redate</th>
-            <th>viewcount</th>
+            <th class="border">IDX</th>
+            <th class="border">title</th>
+            <th class="border">author</th>
+            <th class="border">regdate</th>
+            <th class="border">viewcount</th>
           </tr>
         </thead>
-        <tbody class="sss">
-          <!-- 두개의 조건다 부합할시 -->
-          <!-- arr가 true이면 -> 뒤에 것 실행 이런방향성으로 생각하자 -->
+        <tbody>
+          <!-- && <- 앞에꺼 true 이면 뒤에꺼 확인해봅니다. -->
+          <!-- || <- 앞에꺼 false 이면 뒤에꺼 확인해봅니다. -->
           <template v-if="arr && arr.length>0">
-
-            <tr v-for="item in arr" :key="item.idx" @click="viewPage(item.idx)">
-              <td>{{ item.idx }}</td>
-              <td>{{ item.title }}</td>
-              <td>{{ item.content }}</td>
-              <td>{{ item.creAuthor }}</td>
-              <td>{{ item.regDate }}</td>
-              <td>{{ item.viewCount }}</td>
-
-              <!-- <template v-if="item.list[0]">
-                <td >
-                  <img :src="`${GLOBAL_URL}/file/download/${item.list[0].name}`" 
-                  alt="" width="150">
+            <tr
+              v-for="item in arr"
+              :key="item.idx"
+              class="cursor-pointer hover:bg-slate-200"
+              @click="viewPage(item.idx)">
+              <td>안녕하슈 s나는 바보</td>
+              <td class="border text-center text-lg p-1">{{ item.idx }}</td>
+              <td class="border text-center text-lg p-1">{{ item.title }}</td>
+              <td class="border text-center text-lg p-1">{{ item.creAuthor }}</td>
+              <td class="border text-center text-lg p-1">{{ item.regDate }}</td>
+              <td class="border text-center text-lg p-1">{{ item.viewCount }}</td>
+              <template v-if="item.list[0]">
+                <td class="border text-center text-lg p-1">
+                  <img :src="`${GLOBAL_URL}/file/download/${item.list[0].name}`" alt="" srcset="" width="150">
                 </td>
-              </template> -->
+              </template>
             </tr>
-            
           </template>
         </tbody>
       </table>
     </div>
-    
-    <div style="width: 100px; height: 20px;">
-      <div v-if="temp">
-        sdasdasd
-      </div>
-    </div>
-    <button @click="changeTemp">클릭클릭</button>
-
-    <div>
-      <ul class="dfasdf">
-        <li v-for="num in totalPages" v-bind:key="num" @click="setPageNum(num-1)">
+    <div class="flex justify-center mt-5">
+      <ul class="flex space-x-2">
+        <li
+          class="cursor-pointer p-3"
+          v-for="num in totalPages"
+          v-bind:key="num"
+          @click="setPageNum(num - 1)"
+        >
           {{ num }}
         </li>
       </ul>
     </div>
 
+    <div v-if="temp">
+      <h1>나올수도 있고...</h1>
+    </div>
+    <div>
+      <button @click="changeTemp">나오게..하기</button>
+    </div>
   </div>
 </template>
-
 
 <script setup>
 import { ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
-// import { GLOBAL_URL } from '@/api/util';
+import { GLOBAL_URL } from '@/api/util';
 import { getFreeBoard } from '@/api/freeboardApi';
 
 const temp = ref(null);
@@ -92,21 +92,4 @@ watchEffect(async()=>{
 })
 </script>
 
-
-<style scoped>
-  .tata{
-    border: 1px solid #000;
-  }
-  .dfasdf{
-    list-style: none;
-    display: flex;
-  }
-  .dfasdf li{
-    margin: 10px;
-    cursor: pointer;
-    padding: 5px
-  }
-  .sss tr:hover{
-    background-color: aliceblue;
-  }
-</style>
+<style scoped></style>

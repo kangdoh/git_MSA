@@ -12,6 +12,7 @@ export const getUsers = async () => {
     return e;
   }
 };
+
 export const saveUser = async (item) => {
   try{
     const res = await axios.put(`${URL}/update`,item);
@@ -22,4 +23,15 @@ export const saveUser = async (item) => {
   }
 };
 
-export const deleteUser = () => {};
+export const deleteUser = async(idx) => {
+    try{
+      const res = await axios.delete(`${URL}/delete/${idx}`);
+      return res;
+    }
+    catch(e){
+      console.log(e);
+    }
+};
+
+
+

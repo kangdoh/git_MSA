@@ -28,3 +28,34 @@ export const getFreeBoard = async (pageNum) => {
     return e;
   }
 };
+
+export const getFreeBoardView = async (idx) => {
+  try {
+    const res = await axios.get(`${URL}/view/${idx}`);
+    return res;
+  } catch (e) {
+    console.log(e);
+    return e;
+  }
+};
+
+export const freeboardDelete = async(idx) => {
+  try {
+    const res = await axios.delete(`${URL}/delete/${idx}`);
+    return res;
+  } catch (e) {
+    console.log(e);
+    return e;
+  }
+  
+
+
+    // .then(res => {
+    //   alert(res.data);
+    //   if (res.status == '200') {
+    //     router.push({ name: "freeboardlist" })
+    //   }
+    // })
+    // .catch(e => console.log(e));
+}
+
