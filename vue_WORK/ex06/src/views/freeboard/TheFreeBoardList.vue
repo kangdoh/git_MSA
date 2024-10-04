@@ -32,6 +32,7 @@
                   <img :src="`${GLOBAL_URL}/file/download/${item.list[0].name}`" alt="" srcset="" width="150">
                 </td>
               </template>
+
             </tr>
           </template>
         </tbody>
