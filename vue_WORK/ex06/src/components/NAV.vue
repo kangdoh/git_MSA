@@ -15,6 +15,9 @@
 
       <li><RouterLink to="/fileupload">fileupload</RouterLink></li>
       <li><RouterLink to="/test">test</RouterLink></li>
+
+      <li><RouterLink to="/join">Join</RouterLink></li>
+      <li><RouterLink to="/login">login</RouterLink></li>
     </ul>
   </div>
 </template>

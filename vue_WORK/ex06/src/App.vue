@@ -2,7 +2,9 @@
   <div>
     <h1>변경변경</h1>
     <NAV></NAV>
+    
     <router-view></router-view>
+
   </div>
 </template>
 

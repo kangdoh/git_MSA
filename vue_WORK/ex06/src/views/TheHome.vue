@@ -6,10 +6,6 @@
       <router-view>여기로 불러asdasdsdfsdfd온다</router-view>
     </div>
 
-    <div class="s">
-      <router-view>여기로 불러온다</router-view>
-    </div>
-    
     
   </div>
 </template>

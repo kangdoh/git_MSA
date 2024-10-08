@@ -3,6 +3,10 @@ import TheFreeboardInput from "@/views/freeboard/TheFreeBoardInput.vue";
 import TheFreeBoardList from "@/views/freeboard/TheFreeBoardList.vue";
 import TheFreeBoardUpdate from "@/views/freeboard/TheFreeBoardUpdate.vue";
 import TheFreeBoardView from "@/views/freeboard/TheFreeBoardView.vue";
+
+import Join from "@/views/login/Join.vue";
+import Login from "@/views/login/Login.vue";
+
 import Test from "@/views/Test.vue";
 import TheHome from "@/views/TheHome.vue";
 import TheUserList from "@/views/users/TheUserList.vue";
@@ -53,8 +57,17 @@ const router = createRouter({
       path: '/test',
       name: 'test',
       component: Test
-    }
-
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/join',
+      name: 'join',
+      component: Join
+    },
   ]
 });
 
