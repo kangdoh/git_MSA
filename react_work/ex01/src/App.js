@@ -1,62 +1,34 @@
 import React from "react";
-import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 import Nav from "./component/Nav";
-import Rview from "./@Router/Rview";
-import Rview2 from "./@Router/Rview2";
+import Home from "./@Router/Home";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Company from "./@Router/Company";
+import Product from "./@Router/Product";
+import Qa from "./@Router/Qa";
+import Kakao from "./@Router/Kakao";
+import Google from "./@Router/Google";
+
 
 function App() {
-  const navigate = useNavigate();
-  const onClick = () => {
-    navigate("/page1");
-  };
-
   return (
     <>
-      <div>
-        <Router>
-          <Nav />
+      <BrowserRouter>
+        <Nav></Nav>
 
-          <Rview />
+        <Routes>
+          <Route path="/*" element={<Home />}>
+            <Route path="kakao" element={<Kakao />}></Route>
+            <Route path="" element={<Navigate to="google" />} />
+            <Route path="google" element={<Google />}></Route>
+          </Route>
 
-          <article style={{ height: "100vh", width: "100vw" }}>
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                backgroundColor: "yellow",
-              }}
-            >
-              1
-            </div>
-            <div
-              onClick={onClick}
-              style={{
-                width: "100px",
-                height: "100px",
-                backgroundColor: "red",
-              }}
-            >
-              2
-            </div>
-            <div
-              style={{
-                width: "100px",
-                height: "100px",
-                backgroundColor: "blue",
-              }}
-            >
-              3
-            </div>
-          </article>
-        </Router>
-      </div>
-
-      <Router>
-        <Nav />
-        <Rview2 />
-      </Router>
-
-      <div>dfasdasd</div>
+          <Route path="/company" element={<Company />}></Route>
+          
+          <Route path="/product" element={<Product />}></Route>
+          
+          <Route path="/qa" element={<Qa />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
