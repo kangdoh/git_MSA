@@ -40,21 +40,15 @@
 import { doLogin } from '@/api/loginApi';
 import { ref } from 'vue';
 
-const email = ref('');
-const password = ref('');
+
+const email = ref('aaa@naver.com');
+const password = ref('1234');
 
 const submitLogin = async () => {
     const data = {"email": email.value, "password": password.value};
     const res = await doLogin(data);
-
     console.log(res);
 }
-
-
-
-
-
-
 </script>
 
 

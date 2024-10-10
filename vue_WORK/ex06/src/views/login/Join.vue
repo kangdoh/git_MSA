@@ -60,6 +60,9 @@
 
 <script setup>
 import { doJoin } from '@/api/loginApi';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const doSubmit = async () => {
     const res = await doJoin({
@@ -68,12 +71,17 @@ const doSubmit = async () => {
         "age": "11",
         "email" : "hong@naver.com"
     });
+    if (res.status == '200') {
+      alert('회원가입 성공');
+      router.push({name: 'login'});
+    }
+    else {
+      alert('회원가입 실패'+res.response.data.message);
+    }
+
     console.log(res);
 }
-
-
 </script>
-
 
 
 <style scoped>
