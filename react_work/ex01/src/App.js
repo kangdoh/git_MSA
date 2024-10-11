@@ -20,8 +20,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}>
             <Route path="kakao" element={<Kakao />}></Route>  
-            <Route path="" element={<Navigate to="google" />} />
             <Route path="google" element={<Google />}></Route>
+            <Route path="/" element={<Navigate to="google" />} />
           </Route>
 
 

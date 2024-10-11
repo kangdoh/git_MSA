@@ -1,4 +1,4 @@
-<template>
+<template v-if>
   <div>
     <ul class="gnb">
       <li><RouterLink to="/">home</RouterLink></li>
@@ -20,11 +20,32 @@
       <li><RouterLink to="/login">login</RouterLink></li>
     </ul>
   </div>
+
+  
+</template>
+<template v-else>
+  <div>
+    v-else
+  </div>
 </template>
 
 <script setup>
 import { RouterLink } from 'vue-router'
-// import (RouterView)
+import { ref, watchEffect } from 'vue'
+
+const logincheck = ref(false);
+watchEffect(()=>{
+  const result = dologinCheck();
+  if(result==false){
+    logincheck.value = false;
+  }else{
+    console.log(result);
+    logincheck.value = true;
+  }
+
+  console.log('test')
+})
+
 </script>
 
 <style scoped>
