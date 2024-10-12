@@ -21,12 +21,22 @@ function Google() {
 
     useEffect(() => {
         localStorage.setItem('isPrimary', isPrimary); // 상태 변경 시 로컬 스토리지에 저장
+        localStorage.setItem("item1", 10);
+        localStorage.setItem("item2", "10");
+        localStorage.setItem("item3", { value: 30 });
     }, [isPrimary]);
 
     const toggleColor = () => {
         setIsPrimary(prev => !prev); 
     };
-
+    
+    useEffect(() => {
+        const item1 = localStorage.getItem("item1");
+        const item2 = localStorage.getItem("item2");
+        const item3 = localStorage.getItem("item3");
+        console.log({ item1, item2, item3 });
+    }, []);
+    
     return (
         <div>
             <StyleDiv $primary={isPrimary} onClick={toggleColor}>구글검색해주세요.</StyleDiv>

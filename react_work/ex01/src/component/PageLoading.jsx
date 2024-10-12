@@ -5,7 +5,8 @@ function PageLoading() {
   return (
     <div style={{width:"100vw", height:"100vh", display:'flex', justifyContent:'center', alignItems:"center"}}>
         
-        <h1>LOADINasdfasdfasdfasdfG . . .</h1>
+        <h1>asdfasdfasdfjasdj ajsdfjak sdfjasdfkjLOADING . . .</h1>
+
         {/* <video autoPlay width="1000px" controls>
             <source src={skyVideo} type="video/mp4" />
         </video> */}

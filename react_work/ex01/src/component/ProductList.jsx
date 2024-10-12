@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from "../css/productdetail.module.css";
 import { useLocation, useNavigate } from 'react-router-dom';
+// import skyVideo from '../video/sky.mp4'; 
+
 
 function ProductList() {
     const product = [
@@ -58,6 +60,8 @@ function ProductList() {
                 <p>State: {JSON.stringify(location.state)}</p>
 
             </div>
+    
+                
     </>);
 }
 
