@@ -30,21 +30,21 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
-import { ref, watchEffect } from 'vue'
+// import { RouterLink } from 'vue-router'
+// import { ref, watchEffect } from 'vue'
 
-const logincheck = ref(false);
-watchEffect(()=>{
-  const result = dologinCheck();
-  if(result==false){
-    logincheck.value = false;
-  }else{
-    console.log(result);
-    logincheck.value = true;
-  }
+// const logincheck = ref(false);
+// watchEffect(()=>{
+//   const result = dologinCheck();
+//   if(result==false){
+//     logincheck.value = false;
+//   }else{
+//     console.log(result);
+//     logincheck.value = true;
+//   }
 
-  console.log('test')
-})
+//   console.log('test')
+// })
 
 </script>
 

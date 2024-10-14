@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const StyleDiv  = styled.button.attrs(props => ({
+const StyleDiv = styled.button.attrs(props => ({
     type: 'button', // 기본 type 속성 설정
     primary: props.primary ? 'true' : undefined, // primary prop에 따라 속성 설정
 }))`
@@ -24,6 +24,9 @@ function Google() {
         localStorage.setItem("item1", 10);
         localStorage.setItem("item2", "10");
         localStorage.setItem("item3", { value: 30 });
+        return()=>{
+            console.log("cleanup");
+        };
     }, [isPrimary]);
 
     const toggleColor = () => {

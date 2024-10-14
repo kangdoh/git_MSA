@@ -38,6 +38,12 @@ function Nav() {
            style={({ isActive }) => navStyle(isActive)}
           to="/qa">고객센터</NavLink>
         </li>
+        <li>
+          <NavLink 
+           className={({ isActive }) => navSelect(isActive)}
+           style={({ isActive }) => navStyle(isActive)}
+          to="/count">카운트</NavLink>
+        </li>
       </ul>
     </>
   );

@@ -1,10 +1,13 @@
-import React from 'react';
-import styles from "../css/productdetail.module.css";
+import React, { useContext } from 'react';
+// import styles from "../css/productdetail.module.css";
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Stylecontext } from '../App';
 // import skyVideo from '../video/sky.mp4'; 
 
 
 function ProductList() {
+
+    const styles = useContext(Stylecontext);
     const product = [
         {
             id : '1',
@@ -41,7 +44,7 @@ function ProductList() {
 
     return (<>
             <h2>초특가 상품</h2>
-            <div style={{display:'flex'}}>
+            <div  style={{display:'flex', ...styles}}>
                 {product.map((item) => (
                     <div key={item.id} className={styles.box} onClick={() => pageMove(item.id,item.title,item.price,item.rating,item.review)}>
                         <p>상품이름 : {item.title}</p>

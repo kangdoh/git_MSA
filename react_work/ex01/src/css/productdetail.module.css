@@ -3,3 +3,8 @@
     width: 200px;
     cursor: pointer;
 }
+
+.text{
+    font-size: 20px;
+    color: rgb(213, 103, 0);
+}
