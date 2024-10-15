@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.util.Arrays;
 
-@SpringBootApplication
+@SpringBootApplication 
 @EnableJpaAuditing
 public class Ex10Application {
 
@@ -20,7 +20,6 @@ public class Ex10Application {
 
 //		Arrays.stream(applicationContext.getBeanDefinitionNames())
 //				.forEach(System.out::println);
-
 	}
 
 	@Bean
