@@ -1,0 +1,19 @@
+// ci/cd -> 명령어 모아놓고 실행
+// ./cmd_ (파일명)
+
+// // 컨테이너 중지
+// docker stop B
+
+// // 컨테이너 삭제하라
+// docker rm B
+// //이미지 삭제하라
+// docker rmi A/B
+
+// // 이미지 생성하라
+// docker build =t A/B
+// // 컨테이너 생성하라
+// docker run -d -p 5173:5173 --name B A/B
+
+
+
+
