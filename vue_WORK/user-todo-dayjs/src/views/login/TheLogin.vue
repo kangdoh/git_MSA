@@ -21,12 +21,22 @@
 <script setup>
 const kakaoLogin = () => {
 	window.Kakao.Auth.authorize({
-		redirectUri: 'http://localhost:5173.oauth'
+		redirectUri: 'http://localhost:5173/oauth',
+		scope: 'account_email,friends,talk_calender,talk_calender_task'
 	});
+	// 	scope는 로그인 요청 시 사용자가 허용해야 할 권한을 정의합니다. 이 경우:
+	// account_email: 사용자 이메일 접근 권한
+	// friends: 친구 목록 접근 권한
+	// talk_calender: 카카오톡 일정 접근 권한
+	// talk_calender_task: 카카오톡 일정 작업 접근 권한
 };
 
 const kakaoLogout = () => {
-	window.Kakao.Auth.logout();
+	// window.Kakao.Auth.logout();
+
+	localStorage.removeItem('token');
+	alert('로그아웃 성공');
+
 	// localStorage.removeItem('kakao_access_token');
 	// localStorage.removeItem('kakao_refresh_token');
 	// localStorage.removeItem('kakao_id');

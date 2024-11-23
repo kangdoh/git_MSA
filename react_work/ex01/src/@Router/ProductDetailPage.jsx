@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 
 function ProductDetailPage() {
+  
   const {a, b, c, d, e} = useParams();
 
   return (

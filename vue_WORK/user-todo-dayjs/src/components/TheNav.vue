@@ -25,6 +25,7 @@
 						<RouterLink class="hover:text-blue-500" to="/about">About</RouterLink>
 						<RouterLink class="hover:text-blue-500" to="/month">Month</RouterLink>
 						<RouterLink class="hover:text-blue-500" to="/login">Login</RouterLink>
+						<RouterLink class="hover:text-blue-500" to="/message">Message</RouterLink>
 					</div>
 				</div>
 				<!-- Mobile Menu (hidden by default) -->
@@ -33,6 +34,7 @@
 					<RouterLink class="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/about">About</RouterLink>
 					<RouterLink class="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/month">Month</RouterLink>
 					<RouterLink class="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/login">Login</RouterLink>
+					<RouterLink class="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/message">Message</RouterLink>
 				</div>
 			</div>
 		</nav>

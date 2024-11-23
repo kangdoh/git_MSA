@@ -16,23 +16,20 @@
           <!-- && <- 앞에꺼 true 이면 뒤에꺼 확인해봅니다. -->
           <!-- || <- 앞에꺼 false 이면 뒤에꺼 확인해봅니다. -->
           <template v-if="arr && arr.length>0">
-            <tr
-              v-for="item in arr"
-              :key="item.idx"
-              class="cursor-pointer hover:bg-slate-200"
-              @click="viewPage(item.idx)">
+            <tr v-for="item in arr" :key="item.idx" class="cursor-pointer hover:bg-slate-200" @click="viewPage(item.idx)">
               <td>안녕하슈 s나는 바보</td>
               <td class="border text-center text-lg p-1">{{ item.idx }}</td>
               <td class="border text-center text-lg p-1">{{ item.title }}</td>
               <td class="border text-center text-lg p-1">{{ item.creAuthor }}</td>
               <td class="border text-center text-lg p-1">{{ item.regDate }}</td>
               <td class="border text-center text-lg p-1">{{ item.viewCount }}</td>
+              
               <template v-if="item.list[0]">
                 <td class="border text-center text-lg p-1">
                   <img :src="`${GLOBAL_URL}/file/download/${item.list[0].name}`" alt="" srcset="" width="150">
                 </td>
               </template>
-
+              
             </tr>
           </template>
         </tbody>

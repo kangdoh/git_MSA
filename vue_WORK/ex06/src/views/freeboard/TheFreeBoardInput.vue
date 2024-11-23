@@ -64,6 +64,7 @@ const save = async () => {
   }
   alert('에러' + res.response.data.message);
 };
+
 </script>
 
 <style scoped></style>

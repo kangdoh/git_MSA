@@ -2,11 +2,27 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import AboutView from '@/views/AboutView.vue';
 import MonthView from '@/views/MonthView.vue';
-import TheLogin from '@/views/TheLogin.vue';
+import TheLogin from '@/views/login/TheLogin.vue';
+import OauthView from '@/views/login/OauthView.vue';
+import MessageView from '@/views/login/MessageView.vue';
+
+const loginRouter = [
+	{
+		path: '/login',
+		name: 'login',
+		component: TheLogin
+	},
+	{
+		path: '/oauth',
+		name: 'oauth',
+		component: OauthView
+	}
+];
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
+		...loginRouter,
 		{
 			path: '/',
 			name: 'home',
@@ -23,9 +39,9 @@ const router = createRouter({
 			component: MonthView
 		},
 		{
-			path: '/login',
-			name: 'login',
-			component: TheLogin
+			path: '/message',
+			name: 'message',
+			component: MessageView
 		}
 
 		// // route level code-splitting

@@ -24,7 +24,7 @@ public class freeBoard {
 
     // 한명의 유저가 여러개의 게시물 (OneToMany도 있다 주의!)
     @ManyToOne
-//            (cascade = GenerationType.class)
+    // (cascade = GenerationType.class)
     private User user;
 
     private LocalDateTime regDate;

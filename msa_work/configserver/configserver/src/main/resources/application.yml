@@ -1,0 +1,18 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      sever:
+        git:
+          uri: http://github.com/kangdoh/spring-cloud-config
+          default-label: main
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
