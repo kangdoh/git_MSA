@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Delete</h1>
+        <h1>Deleteasdsad</h1>
     </div>
 </template>
 
