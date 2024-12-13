@@ -50,11 +50,11 @@ const save = () => {
   ))
   formDate.append('file', myfile.value);
 
-  axios
-    .post('http://localhost:10000/freeboard', formDate,
+  axios.post('http://localhost:10000/freeboard', formDate,
       {headers:{
         'Content-Type': 'multipart/form-data'
-      }}
+      }
+    }
     )
     .then((res) => {
       console.log(res);
